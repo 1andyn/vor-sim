@@ -1,5 +1,8 @@
 package ics314;
 
+import java.util.List;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Spinner;
 
 public class Interface_Configurator {
@@ -18,5 +21,10 @@ public class Interface_Configurator {
 		input_spin.setSelection(Interface_Const.START_ANGLE);
 		input_spin.setIncrement(Interface_Const.ANGLE_INCR);
 		input_spin.setPageIncrement(Interface_Const.ANGLE_PAGEINCR);	
+	}
+	
+	public void LoadImages(Display disp,List<Image> images){
+		Image bg_image = new Image(disp,"rsrc/mapbg.jpg");
+		images.add(bg_image);
 	}
 }
