@@ -2,6 +2,8 @@ package ics314;
 
 public interface Interface_Const {
 	
+	static final int DISP_COLUMN = 1;
+	static final int SUB_COL_COUNT = 2;
 	static final int ColumnCount = 3;
 	static final int FillTwoColumns = 2;
 	static final int SingleColumn = 1;
@@ -16,5 +18,12 @@ public interface Interface_Const {
 	static final int START_ANGLE = 0;
 	static final int ANGLE_INCR = 1;
 	static final int ANGLE_PAGEINCR = 20;
+	static final int BG_PIXELS = 400;
+	
+	
+	//Fixed Coordinates
+	static final int onboard_x = 3;
+	static final int obs_y = 220;
+	static final int cmp_y = 18;
 	
 }
