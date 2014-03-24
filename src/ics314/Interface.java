@@ -8,7 +8,6 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
@@ -28,7 +27,6 @@ public class Interface {
 		Display Disp = new Display();
 		Shell Disp_Shell = new Shell(Disp);
 		Disp_Shell.setText("VOR Simulator");
-		Composite Parent = new Composite(Disp_Shell, SWT.NONE);
 		GridLayout Disp_Layout = new GridLayout(
 				Interface_Const.ColumnCount, false);
 		GridData G_Data = new GridData(SWT.FILL, SWT.CENTER, true, false);
@@ -41,7 +39,7 @@ public class Interface {
 		icfg.LoadImages(Disp, imagelist);
 		
 		//Column #1 Vor Background
-		Label background = new Label(Parent,SWT.NONE);
+		Label background = new Label(Disp_Shell,SWT.BORDER);
 		background.setImage(imagelist.get(0));
 		background.setData(G_Data);
 		
