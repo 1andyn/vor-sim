@@ -52,7 +52,7 @@ public class Interface {
 		Disp_Layout.numColumns = Interface_Const.DISP_COLUMN;
 		G_Data = new GridData(GridData.FILL, GridData.BEGINNING, true, false);
 		G_Data.widthHint = Interface_Const.BG_PIXELS/2;
-		G_Data.heightHint = Interface_Const.BG_PIXELS + 20;
+		G_Data.heightHint = Interface_Const.BG_PIXELS + 5;
 		G_Data.horizontalSpan = Interface_Const.SingleColumn;
 		Onboard_Disp.setLayoutData(G_Data);
 		
@@ -74,44 +74,52 @@ public class Interface {
 		Disp_Layout.numColumns = Interface_Const.SUB_COL_COUNT;
 		G_Data = new GridData(GridData.FILL, GridData.BEGINNING, true, false);
 		G_Data.horizontalSpan = Interface_Const.SUB_COL_COUNT;
+		G_Data.heightHint = 60;
 		Simulator_Inputs.setLayoutData(G_Data);
 		
 		/* X Coord Setup*/
-		Label PlaneCoordLabelX = new Label(Simulator_Inputs, SWT.SINGLE | SWT.BORDER);
+		Label PlaneCoordLabelX = new Label(Simulator_Inputs, SWT.SINGLE);
 		PlaneCoordLabelX.setText("Plane Coordinates X: ");	
-		PlaneCoordLabelX.setLayoutData(new GridData(GridData.FILL, GridData.CENTER, true, false));
+		PlaneCoordLabelX.pack();
+		PlaneCoordLabelX.setLocation(40, 25);
 		//Label Creations for User Interactables
 
-		/*
-	    Spinner PlaneX = new Spinner(Disp_Shell, SWT.READ_ONLY);
-	    icfg.SpinnerCoordConfig(PlaneX);*/
+	    Spinner PlaneX = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
+	    icfg.SpinnerCoordConfig(PlaneX);
+	    PlaneX.pack();
+	    PlaneX.setLocation(170, 23);
 	    
-		Label PlaneCoordLabelY = new Label(Simulator_Inputs, SWT.SINGLE | SWT.BORDER);
+		Label PlaneCoordLabelY = new Label(Simulator_Inputs, 
+				SWT.SINGLE & SWT.BORDER);
 		PlaneCoordLabelY.setText("Plane Coordinates Y: ");
-		PlaneCoordLabelY.setLayoutData(new GridData(GridData.FILL, GridData.CENTER, true, false));
+		PlaneCoordLabelY.pack();
+		PlaneCoordLabelY.setLocation(40, 51);
 		
-		/*
-		Spinner PlaneY = new Spinner(Disp_Shell, SWT.READ_ONLY);
-	    icfg.SpinnerCoordConfig(PlaneY);*/
+		Spinner PlaneY = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
+	    icfg.SpinnerCoordConfig(PlaneY);
+	    PlaneY.pack();
+	    PlaneY.setLocation(170, 50);
 	    
-		Label PlaneAngleLabel = new Label(Simulator_Inputs, SWT.SINGLE | SWT.BORDER);
+		Label PlaneAngleLabel = new Label(Simulator_Inputs, SWT.SINGLE);
 		PlaneAngleLabel.setText("Plane Angle (Degrees): ");
-		PlaneAngleLabel.setLayoutData(new GridData(GridData.FILL, GridData.CENTER, true, false));
+		PlaneAngleLabel.pack();
+		PlaneAngleLabel.setLocation(330,25);
 	
-		/*
-	    Spinner PlaneAngle = new Spinner(Disp_Shell, SWT.READ_ONLY);
-	    icfg.SpinnerAngleConfig(PlaneAngle);*/	
-		
-		Label OBSLabel = new Label(Simulator_Inputs, SWT.SINGLE | SWT.BORDER);
+	    Spinner PlaneAngle = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
+	    icfg.SpinnerAngleConfig(PlaneAngle);
+		PlaneAngle.pack();
+		PlaneAngle.setLocation(510,23);
+	    
+		Label OBSLabel = new Label(Simulator_Inputs, SWT.SINGLE);
 		OBSLabel.setText("OBS Knob Angle (Degrees): ");
-		OBSLabel.setLayoutData(new GridData(GridData.FILL, GridData.CENTER, true, false));
+		OBSLabel.pack();
+		OBSLabel.setLocation(330,51);
 
-		
-		/*
-		Spinner OBSAngle = new Spinner(Disp_Shell, SWT.READ_ONLY);
-		icfg.SpinnerAngleConfig(OBSAngle);*/
+		Spinner OBSAngle = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
+		icfg.SpinnerAngleConfig(OBSAngle);
+		OBSAngle.pack();
+		OBSAngle.setLocation(510,50);
 
-	
 		Disp_Shell.pack();
 		Disp_Shell.open();
 		
@@ -122,26 +130,5 @@ public class Interface {
 		}
 		Disp.dispose();
 	}
-	
-	private static void InitializeCompass(Shell shell, List<Image> img){
-		Composite row = new Composite (shell, SWT.NONE);
-		row.setLayout(new GridLayout(Interface_Const.SUB_COL_COUNT,true));
-		row.setLayoutData(new GridData(GridData.FILL,SWT.BEGINNING, true, false));
-		
-		/* Compass Display */
-		Label compass = new Label(shell,SWT.BORDER);
-		compass.setImage(img.get(1));
-		compass.setLayoutData(new GridData(GridData.FILL, SWT.BEGINNING, true, false));
-		
-		/* X Coord Setup*/
-		Label PlaneCoordLabelX = new Label(shell, SWT.BORDER);
-		PlaneCoordLabelX.setText("Plane Coordinates X: ");	
-		PlaneCoordLabelX.setLayoutData(new GridData(GridData.FILL, SWT.BEGINNING, true, false));
-	}
-	
-	private static void InitializeOBS(Shell shell){
-		
-	}
-	
 	
 }
