@@ -30,5 +30,7 @@ public class Interface_Configurator {
 		images.add(comp_image);
 		Image obs_image = new Image(disp,"rsrc/obs.jpg");
 		images.add(obs_image);
+		Image plane_image = new Image(disp, "rsrc/plane.png");
+		images.add(plane_image);
 	}
 }
