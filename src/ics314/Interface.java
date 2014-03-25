@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -40,11 +41,28 @@ public class Interface {
 		icfg.LoadImages(Disp, imagelist);
 
 		//Column #1 VOR Background
-		G_Data.widthHint = Interface_Const.BG_PIXELS;
-		G_Data.heightHint = Interface_Const.BG_PIXELS;
-		Label background = new Label(Disp_Shell,SWT.BORDER);
+		Group Map_Disp = new Group(Disp_Shell, SWT.NONE);
+		Map_Disp.setText("VOR Map");
+		Disp_Layout = new GridLayout();
+		Disp_Layout.numColumns = 1;
+		G_Data = new GridData(GridData.FILL, GridData.BEGINNING, true, false);
+		G_Data.widthHint = Interface_Const.BG_PIXELS + 5;
+		G_Data.heightHint = Interface_Const.BG_PIXELS + 5;
+		Map_Disp.setLayoutData(G_Data);
+		
+		Label plane = new Label(Map_Disp, SWT.NO_BACKGROUND & SWT.TRANSPARENT);
+		plane.setImage(imagelist.get(3));
+		plane.pack();
+		plane.setLocation(185,198);
+		
+		Label background = new Label(Map_Disp,SWT.BORDER);
 		background.setImage(imagelist.get(0));
 		background.setData(G_Data);
+		background.setLocation(5,18);
+		background.pack();
+		
+
+		
 		
 		Group Onboard_Disp = new Group(Disp_Shell, SWT.NONE);
 		Onboard_Disp.setText("Onboard Display");
