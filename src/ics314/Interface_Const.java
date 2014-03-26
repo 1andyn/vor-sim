@@ -25,5 +25,9 @@ public interface Interface_Const {
 	static final int onboard_x = 3;
 	static final int obs_y = 220;
 	static final int cmp_y = 18;
+
+	static final int cmpp_x = 88;
+	static final int cmpp_y = 100;
+	
 	
 }
