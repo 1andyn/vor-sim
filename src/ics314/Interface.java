@@ -61,9 +61,6 @@ public class Interface {
 		background.setLocation(5,18);
 		background.pack();
 		
-
-		
-		
 		Group Onboard_Disp = new Group(Disp_Shell, SWT.NONE);
 		Onboard_Disp.setText("Onboard Display");
 		Disp_Layout = new GridLayout();

@@ -26,7 +26,7 @@ public class Interface_Configurator {
 	public void LoadImages(Display disp,List<Image> images){
 		Image bg_image = new Image(disp,"rsrc/mapbg.jpg");
 		images.add(bg_image);
-		Image comp_image = new Image(disp,"rsrc/cmpas.jpg");
+		Image comp_image = new Image(disp,"rsrc/compass.png");
 		images.add(comp_image);
 		Image obs_image = new Image(disp,"rsrc/obs.jpg");
 		images.add(obs_image);
