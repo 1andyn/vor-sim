@@ -24,25 +24,27 @@ public class Interface_Configurator {
 	}
 	
 	public void LoadImages(Display disp,List<Image> images){
-		Image bg_image = new Image(disp,"rsrc/mapbg.jpg");
+		Image bg_image = new Image(disp,"rsrc/mapbg.jpg"); //0
 		images.add(bg_image);
-		Image comp_image = new Image(disp,"rsrc/compass.png");
+		Image comp_image = new Image(disp,"rsrc/compass.png"); //1
 		images.add(comp_image);
-		Image obs_image = new Image(disp,"rsrc/obs.png");
+		Image obs_image = new Image(disp,"rsrc/obs.png"); //2
 		images.add(obs_image);
-		Image plane_image = new Image(disp, "rsrc/plane.png");
+		Image plane_image = new Image(disp, "rsrc/plane.png"); //3
 		images.add(plane_image);
-		Image arw_left = new Image(disp, "rsrc/left.png");
+		Image arw_left = new Image(disp, "rsrc/left.png"); //4
 		images.add(arw_left);
-		Image arw_cent = new Image(disp, "rsrc/center.png");
+		Image arw_cent = new Image(disp, "rsrc/center.png"); //5
 		images.add(arw_cent);
-		Image arw_right = new Image(disp, "rsrc/right.png");
+		Image arw_right = new Image(disp, "rsrc/right.png"); //6
 		images.add(arw_right);
-		Image arw_top = new Image(disp, "rsrc/obs_ptr.png");
+		Image arw_top = new Image(disp, "rsrc/obs_ptr.png"); //7
 		images.add(arw_top);
-		Image from = new Image(disp, "rsrc/from.png");
+		Image from = new Image(disp, "rsrc/from.png"); //8
 		images.add(from);
-		Image to = new Image(disp, "rsrc/to.png");
+		Image to = new Image(disp, "rsrc/to.png"); //9
 		images.add(to);
+		Image cent = new Image(disp, "rsrc/cent.png"); //10
+		images.add(cent);
 	}
 }
