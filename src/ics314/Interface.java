@@ -61,6 +61,8 @@ public class Interface {
 		background.setLocation(5,18);
 		background.pack();
 		
+		//Secondary displays
+		
 		Group Onboard_Disp = new Group(Disp_Shell, SWT.NONE);
 		Onboard_Disp.setText("Onboard Display");
 		Disp_Layout = new GridLayout();
@@ -71,12 +73,31 @@ public class Interface {
 		G_Data.horizontalSpan = Interface_Const.SingleColumn;
 		Onboard_Disp.setLayoutData(G_Data);
 		
+		final Label comp_plane = new Label(Onboard_Disp,SWT.CENTER);
+		comp_plane.setImage(imagelist.get(3));
+		comp_plane.pack();
+		comp_plane.setLocation(Interface_Const.cmpp_x,Interface_Const.cmpp_y);
 		
+		final Label obs_ptr = new Label(Onboard_Disp,SWT.CENTER);
+		obs_ptr.setImage(imagelist.get(7));
+		obs_ptr.pack();
+		obs_ptr.setLocation(95, 255);
+		
+		final Label dir_ptr = new Label(Onboard_Disp,SWT.CENTER);
+		dir_ptr.setImage(imagelist.get(10)); //10 for Blank (Center, 9 for TO, 8 for FROM
+		dir_ptr.pack();
+		dir_ptr.setLocation(115, 295);
+		
+		final Label dir_ptr2 = new Label(Onboard_Disp,SWT.CENTER);
+		dir_ptr2.setImage(imagelist.get(5)); //5 for Blank Center, 4 for left, 6 for right
+		dir_ptr2.pack();
+		dir_ptr2.setLocation(40, 320);
+
 		Label compass = new Label(Onboard_Disp,SWT.CENTER);
 		compass.setImage(imagelist.get(1));
 		compass.setLocation(Interface_Const.onboard_x, Interface_Const.cmp_y);
 		compass.pack();
-
+		
 		Label obs = new Label(Onboard_Disp,SWT.CENTER);
 		obs.setImage(imagelist.get(2));
 		obs.setLocation(Interface_Const.onboard_x, Interface_Const.obs_y);
