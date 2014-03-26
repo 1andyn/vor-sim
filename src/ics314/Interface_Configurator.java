@@ -28,9 +28,21 @@ public class Interface_Configurator {
 		images.add(bg_image);
 		Image comp_image = new Image(disp,"rsrc/compass.png");
 		images.add(comp_image);
-		Image obs_image = new Image(disp,"rsrc/obs.jpg");
+		Image obs_image = new Image(disp,"rsrc/obs.png");
 		images.add(obs_image);
 		Image plane_image = new Image(disp, "rsrc/plane.png");
 		images.add(plane_image);
+		Image arw_left = new Image(disp, "rsrc/left.png");
+		images.add(arw_left);
+		Image arw_cent = new Image(disp, "rsrc/center.png");
+		images.add(arw_cent);
+		Image arw_right = new Image(disp, "rsrc/right.png");
+		images.add(arw_right);
+		Image arw_top = new Image(disp, "rsrc/obs_ptr.png");
+		images.add(arw_top);
+		Image from = new Image(disp, "rsrc/from.png");
+		images.add(from);
+		Image to = new Image(disp, "rsrc/to.png");
+		images.add(to);
 	}
 }
