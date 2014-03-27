@@ -16,7 +16,7 @@ public interface Interface_Const {
 	static final int MINANGLE = 0;
 	static final int MAXANGLE = 360;
 	static final int START_COORD = 0;
-	static final int COORD_INCREMENT = 1;
+	static final int COORD_INCREMENT = 5;
 	static final int COORD_PAGE_INCREMENT = 10;
 	static final int START_ANGLE = 0;
 	static final int ANGLE_INCR = 1;
