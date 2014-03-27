@@ -41,6 +41,8 @@ public class Interface {
 		GridData G_Data = new GridData(GridData.FILL, GridData.CENTER, true, false);
 		Interface_Configurator icfg = new Interface_Configurator();
 		
+		final Radio vor_rad = new Radio();
+		
 		//Resource Setup
 		final List<Image> imagelist = new ArrayList<Image>();
 		icfg.LoadImages(Disp, imagelist);
@@ -172,7 +174,10 @@ public class Interface {
 		      public void widgetSelected(SelectionEvent e) {
 		        int selection = PlaneX.getSelection();
 		        int digits = PlaneX.getDigits();
-		        System.out.println("PlaneX is " + (selection / Math.pow(10, digits)));
+		        int value = (int) (selection / Math.pow(10, digits));
+		        vor_rad.setXCoord(value + Interface_Const.p_cx);
+		        System.out.println("PlaneX is " + value);
+		        plane.setLocation(vor_rad.getXCoord(), vor_rad.getYCoord());
 		      }
 		    });
 		
@@ -180,7 +185,11 @@ public class Interface {
 		      public void widgetSelected(SelectionEvent e) {
 		        int selection = PlaneY.getSelection();
 		        int digits = PlaneY.getDigits();
-		        System.out.println("PlaneY is " + (selection / Math.pow(10, digits)));
+		        int value = (int) (selection / Math.pow(10, digits));
+		        vor_rad.setYCoord(value*Interface_Const.INVERT + 
+		        		Interface_Const.p_cy);
+		        System.out.println("PlaneY is " + value);
+		        plane.setLocation(vor_rad.getXCoord(), vor_rad.getYCoord());
 		      }
 		    });
 		
