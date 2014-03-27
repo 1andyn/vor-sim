@@ -5,6 +5,8 @@ public class Radio {
 	private int PLANE_Y_COORD;
 	private int PLANE_ANGLE;
 	private int OBS_ANGLE;
+	private int WEST_EAST;
+	private int NORTH_SOUTH;
 	
 	public Radio(int x, int y, int p, int o)
 	{
@@ -12,6 +14,8 @@ public class Radio {
 		PLANE_Y_COORD = y;
 		PLANE_ANGLE = p;
 		OBS_ANGLE = o;
+		NORTH_SOUTH = Interface_Const.CENTER;
+		WEST_EAST = Interface_Const.CENTER;
 	}
 	
 	public Radio()
@@ -25,6 +29,18 @@ public class Radio {
 		PLANE_Y_COORD = Interface_Const.p_cy;
 		PLANE_ANGLE = Interface_Const.START_ANGLE;
 		OBS_ANGLE = Interface_Const.START_ANGLE;
+		NORTH_SOUTH = Interface_Const.CENTER;
+		WEST_EAST = Interface_Const.CENTER;
+	}
+	
+	public void updateToFrom()
+	{
+		//Uses Calculation 
+	}
+	
+	public void updateWestEast()
+	{
+		//Uses Calculation 
 	}
 	
 	public void setPlaneAngle(int angle)
