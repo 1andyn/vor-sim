@@ -46,5 +46,7 @@ public class Interface_Configurator {
 		images.add(to);
 		Image cent = new Image(disp, "rsrc/cent.png"); //10
 		images.add(cent);
+		Image planet_image = new Image(disp, "rsrc/planet.png"); //11
+		images.add(planet_image);
 	}
 }
