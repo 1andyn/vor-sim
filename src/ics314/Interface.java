@@ -50,14 +50,16 @@ public class Interface {
 		Map_Disp.setText("VOR Map");
 		Disp_Layout = new GridLayout();
 		Disp_Layout.numColumns = 1;
+		Map_Disp.setBackgroundImage(imagelist.get(0));
+		Map_Disp.setBackgroundMode(SWT.INHERIT_FORCE);
 		G_Data = new GridData(GridData.FILL, GridData.BEGINNING, true, false);
-		G_Data.widthHint = Interface_Const.BG_PIXELS + 5;
-		G_Data.heightHint = Interface_Const.BG_PIXELS + 5;
+		G_Data.widthHint = Interface_Const.BG_PIXELS;
+		G_Data.heightHint = Interface_Const.BG_PIXELS;
 		Map_Disp.setLayoutData(G_Data);
 		
 		
 		final Label plane = new Label(Map_Disp, SWT.NO_BACKGROUND & SWT.TRANSPARENT);
-		plane.setImage(imagelist.get(3));
+		plane.setImage(imagelist.get(11));
 		plane.pack();
 		plane.setLocation(Interface_Const.p_cx,Interface_Const.p_cy);
 		
@@ -67,13 +69,6 @@ public class Interface {
 	         e.gc.drawImage(imagelist.get(3),0,0);
 	        }
 	    });
-		
-		
-		Label background = new Label(Map_Disp,SWT.BORDER);
-		background.setImage(imagelist.get(0));
-		background.setData(G_Data);
-		background.setLocation(5,18);
-		background.pack();
 		
 		//Secondary displays
 		
