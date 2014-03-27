@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
@@ -120,7 +122,7 @@ public class Interface {
 		PlaneCoordLabelX.setLocation(40, 25);
 		//Label Creations for User Interactables
 
-	    Spinner PlaneX = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
+	    final Spinner PlaneX = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
 	    icfg.SpinnerCoordConfig(PlaneX);
 	    PlaneX.pack();
 	    PlaneX.setLocation(170, 23);
@@ -131,7 +133,7 @@ public class Interface {
 		PlaneCoordLabelY.pack();
 		PlaneCoordLabelY.setLocation(40, 51);
 		
-		Spinner PlaneY = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
+		final Spinner PlaneY = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
 	    icfg.SpinnerCoordConfig(PlaneY);
 	    PlaneY.pack();
 	    PlaneY.setLocation(170, 50);
@@ -141,7 +143,7 @@ public class Interface {
 		PlaneAngleLabel.pack();
 		PlaneAngleLabel.setLocation(330,25);
 	
-	    Spinner PlaneAngle = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
+	    final Spinner PlaneAngle = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
 	    icfg.SpinnerAngleConfig(PlaneAngle);
 		PlaneAngle.pack();
 		PlaneAngle.setLocation(510,23);
@@ -151,13 +153,46 @@ public class Interface {
 		OBSLabel.pack();
 		OBSLabel.setLocation(330,51);
 
-		Spinner OBSAngle = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
+		final Spinner OBSAngle = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
 		icfg.SpinnerAngleConfig(OBSAngle);
 		OBSAngle.pack();
 		OBSAngle.setLocation(510,50);
 
 		Disp_Shell.pack();
 		Disp_Shell.open();
+		
+		PlaneX.addSelectionListener(new SelectionAdapter() {
+		      public void widgetSelected(SelectionEvent e) {
+		        int selection = PlaneX.getSelection();
+		        int digits = PlaneX.getDigits();
+		        System.out.println("PlaneX is " + (selection / Math.pow(10, digits)));
+		      }
+		    });
+		
+		PlaneY.addSelectionListener(new SelectionAdapter() {
+		      public void widgetSelected(SelectionEvent e) {
+		        int selection = PlaneY.getSelection();
+		        int digits = PlaneY.getDigits();
+		        System.out.println("PlaneY is " + (selection / Math.pow(10, digits)));
+		      }
+		    });
+		
+		PlaneAngle.addSelectionListener(new SelectionAdapter() {
+		      public void widgetSelected(SelectionEvent e) {
+		        int selection = PlaneAngle.getSelection();
+		        int digits = PlaneAngle.getDigits();
+		        System.out.println("Plane Angle is " + (selection / Math.pow(10, digits)));
+		      }
+		    });
+		
+		OBSAngle.addSelectionListener(new SelectionAdapter() {
+		      public void widgetSelected(SelectionEvent e) {
+		        int selection = OBSAngle.getSelection();
+		        int digits = OBSAngle.getDigits();
+		        System.out.println("OBS Angle is " + (selection / Math.pow(10, digits)));
+		      }
+		    });
+		
 		
 		while(!Disp_Shell.isDisposed()) {
 			if(!Disp.readAndDispatch()) {
