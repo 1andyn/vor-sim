@@ -29,5 +29,8 @@ public interface Interface_Const {
 	static final int cmpp_x = 88;
 	static final int cmpp_y = 100;
 	
+	static final int p_cx = 191;
+	static final int p_cy = 201;
+	
 	
 }

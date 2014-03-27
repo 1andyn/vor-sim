@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.PaintEvent;
+import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.GC;
@@ -11,6 +13,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
@@ -39,7 +42,7 @@ public class Interface {
 		Interface_Configurator icfg = new Interface_Configurator();
 		
 		//Resource Setup
-		List<Image> imagelist = new ArrayList<Image>();
+		final List<Image> imagelist = new ArrayList<Image>();
 		icfg.LoadImages(Disp, imagelist);
 
 		//Column #1 VOR Background
@@ -52,10 +55,19 @@ public class Interface {
 		G_Data.heightHint = Interface_Const.BG_PIXELS + 5;
 		Map_Disp.setLayoutData(G_Data);
 		
-		Label plane = new Label(Map_Disp, SWT.NO_BACKGROUND & SWT.TRANSPARENT);
+		
+		final Label plane = new Label(Map_Disp, SWT.NO_BACKGROUND & SWT.TRANSPARENT);
 		plane.setImage(imagelist.get(3));
 		plane.pack();
-		plane.setLocation(185,198);
+		plane.setLocation(Interface_Const.p_cx,Interface_Const.p_cy);
+		
+		 Canvas canvas = new Canvas(Map_Disp,SWT.NO_REDRAW_RESIZE);
+	    canvas.addPaintListener(new PaintListener() {
+	        public void paintControl(PaintEvent e) {
+	         e.gc.drawImage(imagelist.get(3),0,0);
+	        }
+	    });
+		
 		
 		Label background = new Label(Map_Disp,SWT.BORDER);
 		background.setImage(imagelist.get(0));
