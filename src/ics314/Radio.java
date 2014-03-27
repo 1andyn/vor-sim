@@ -21,8 +21,8 @@ public class Radio {
 	
 	private void initRadio()
 	{
-		PLANE_X_COORD = Interface_Const.START_COORD;
-		PLANE_Y_COORD = Interface_Const.START_COORD;
+		PLANE_X_COORD = Interface_Const.p_cx;
+		PLANE_Y_COORD = Interface_Const.p_cy;
 		PLANE_ANGLE = Interface_Const.START_ANGLE;
 		OBS_ANGLE = Interface_Const.START_ANGLE;
 	}
@@ -69,6 +69,13 @@ public class Radio {
 	{
 		int temp = OBS_ANGLE;
 		return temp;
+	}
+	
+	//Debug
+	public void debugCoord()
+	{
+		 System.out.println("Current Coordinates are: " + getXCoord() + ", "
+				 + getYCoord());
 	}
 	
 }
