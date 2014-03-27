@@ -5,6 +5,14 @@ public interface Interface_Const {
 	//Inversion
 	static final int INVERT = -1;
 	
+	//Direction Constants
+	static final int FROM = 1;
+	static final int TO = -1;
+	static final int CENTER = 0;
+	static final int WEST = -1;
+	static final int EAST = 1;
+	
+	//Widget Constants
 	static final int DISP_COLUMN = 1;
 	static final int SUB_COL_COUNT = 2;
 	static final int ColumnCount = 3;
