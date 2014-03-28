@@ -45,4 +45,8 @@ public interface Interface_Const {
 	static final int p_cx = 185;
 	static final int p_cy = 192;
 	
+	
+	//Angle Offsets
+	static final int HORIZONTAL_OFFSET = 135;
+	static final int VERTICAL_OFFSET = 45;
 }
