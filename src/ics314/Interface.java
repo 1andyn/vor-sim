@@ -95,8 +95,7 @@ public class Interface {
 
 		cmp_cvs.addPaintListener(new PaintListener() {
 		      public void paintControl(PaintEvent e) {
-		        e.gc.drawImage(compass,0,0);
-		        e.gc.drawImage(obs, 0, 205);
+
 		        Transform transform = new Transform(Disp);
 		        transform.translate(rect.width/2, rect.height/2);
 		        transform.rotate(vor_rad.getPlaneAngle());
@@ -105,6 +104,14 @@ public class Interface {
 		        e.gc.drawImage(compass, 0,0);
 		        transform.dispose();
 		        
+		        transform = new Transform(Disp);
+		        transform.translate(0 + rect.width/2, (205 + rect.height/2));
+		        transform.rotate(vor_rad.getOBSAngle());
+		        transform.translate(-rect.width/2, -(205+rect.height/2));
+		        e.gc.setTransform(transform);
+		        e.gc.drawImage(obs, 0,205);
+		        transform.dispose();
+		     
 		        e.gc.setTransform(null);
 		        e.gc.drawImage(cmp_plane,85,80);
 		        e.gc.drawImage(obs_ptr, 93, 238);
