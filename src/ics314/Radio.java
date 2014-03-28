@@ -94,4 +94,11 @@ public class Radio {
 				 + getYCoord());
 	}
 	
+	//Debug
+	public void debugAngle()
+	{
+		 System.out.println("Current Angles are PLANE: " + getPlaneAngle() + ", OBS: "
+				 + getOBSAngle());
+	}
+	
 }
