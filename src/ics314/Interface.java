@@ -61,7 +61,8 @@ public class Interface {
 		final Image plane = imagelist.get(11);
 		final Rectangle plane_box = plane.getBounds();
 		final Image background = imagelist.get(0);
-		
+		final Image line = imagelist.get(12);
+		final Rectangle line_box = line.getBounds();
 		final Canvas canvas = new Canvas(Map_Disp,SWT.NO_REDRAW_RESIZE);
 	    canvas.addPaintListener(new PaintListener() {
 	        public void paintControl(PaintEvent e) {
@@ -69,6 +70,8 @@ public class Interface {
 		        
 		        int x = vor_rad.getXCoord();
 		        int y = vor_rad.getYCoord();
+		        
+		        
 		        Transform transform = new Transform(Disp);
 		        transform.translate(x + plane_box.width/2, y + plane_box.height/2);
 		        transform.rotate(-vor_rad.getPlaneAngle());
@@ -76,6 +79,25 @@ public class Interface {
 		        e.gc.setTransform(transform);
 		        e.gc.drawImage(plane, vor_rad.getXCoord(),vor_rad.getYCoord());
 		        transform.dispose();
+		        
+		        transform = new Transform(Disp);
+		        transform.translate(line_box.width/2, 8+line_box.height/2);
+		        transform.rotate(vor_rad.getOBSAngle()+ 
+		        		Interface_Const.VERTICAL_OFFSET);
+		        transform.translate(-(line_box.width/2), -(8 + line_box.height/2));
+		        e.gc.setTransform(transform);
+		        e.gc.drawImage(line, 0, 8);
+		        transform.dispose();
+		        
+		        transform = new Transform(Disp);
+		        transform.translate(line_box.width/2, 8+line_box.height/2);
+		        transform.rotate(vor_rad.getOBSAngle()+ 
+		        		Interface_Const.HORIZONTAL_OFFSET);
+		        transform.translate(-(line_box.width/2), -(8 + line_box.height/2));
+		        e.gc.setTransform(transform);
+		        e.gc.drawImage(line, 0, 8);
+		        transform.dispose();
+		        
 
 	        }
 	    });
