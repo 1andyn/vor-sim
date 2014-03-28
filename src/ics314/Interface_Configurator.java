@@ -48,5 +48,7 @@ public class Interface_Configurator {
 		images.add(cent);
 		Image planet_image = new Image(disp, "rsrc/planet.png"); //11
 		images.add(planet_image);
+		Image obs_line = new Image(disp, "rsrc/obs_line.png"); //12
+		images.add(obs_line);
 	}
 }
