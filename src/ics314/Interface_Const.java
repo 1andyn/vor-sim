@@ -31,6 +31,9 @@ public interface Interface_Const {
 	static final int ANGLE_PAGEINCR = 20;
 	static final int BG_PIXELS = 400;
 	
+	//Math
+	static final float DEGREES_PER_PI = 180;
+	
 	//Fixed Coordinates
 	static final int onboard_x = 3;
 	static final int obs_y = 220;
