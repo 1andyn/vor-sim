@@ -50,27 +50,36 @@ public class Interface {
 		//Column #1 VOR Background
 		Group Map_Disp = new Group(Disp_Shell, SWT.NONE);
 		Map_Disp.setText("VOR Map");
-		Disp_Layout = new GridLayout();
-		Disp_Layout.numColumns = 1;
-		Map_Disp.setBackgroundImage(imagelist.get(0));
 		Map_Disp.setBackgroundMode(SWT.INHERIT_FORCE);
+		Map_Disp.setLayout(new FillLayout());
 		G_Data = new GridData(GridData.FILL, GridData.BEGINNING, true, false);
 		G_Data.widthHint = Interface_Const.BG_PIXELS;
-		G_Data.heightHint = Interface_Const.BG_PIXELS;
+		G_Data.heightHint = Interface_Const.BG_PIXELS + 5;
 		Map_Disp.setLayoutData(G_Data);
 		
 		
-		final Label plane = new Label(Map_Disp, SWT.NO_BACKGROUND & SWT.TRANSPARENT);
-		plane.setImage(imagelist.get(11));
-		plane.pack();
-		plane.setLocation(Interface_Const.p_cx,Interface_Const.p_cy);
+		final Image plane = imagelist.get(11);
+		final Rectangle plane_box = plane.getBounds();
+		final Image background = imagelist.get(0);
 		
-		Canvas canvas = new Canvas(Map_Disp,SWT.NO_REDRAW_RESIZE);
+		final Canvas canvas = new Canvas(Map_Disp,SWT.NO_REDRAW_RESIZE);
 	    canvas.addPaintListener(new PaintListener() {
 	        public void paintControl(PaintEvent e) {
-	         e.gc.drawImage(imagelist.get(3),0,0);
+		        e.gc.drawImage(background, 0, 0);
+		        
+		        int x = vor_rad.getXCoord();
+		        int y = vor_rad.getYCoord();
+		        Transform transform = new Transform(Disp);
+		        transform.translate(x + plane_box.width/2, y + plane_box.height/2);
+		        transform.rotate(-vor_rad.getPlaneAngle());
+		        transform.translate(-(x + plane_box.width/2), -(y + plane_box.height/2));
+		        e.gc.setTransform(transform);
+		        e.gc.drawImage(plane, vor_rad.getXCoord(),vor_rad.getYCoord());
+		        transform.dispose();
+
 	        }
 	    });
+	    canvas.pack();
 		
 		//Secondary displays
 		Group Onboard_Disp = new Group(Disp_Shell, SWT.NONE);
@@ -184,7 +193,7 @@ public class Interface {
 		        int value = (int) (selection / Math.pow(10, digits));
 		        vor_rad.setXCoord(value + Interface_Const.p_cx);
 		        System.out.println("PlaneX is " + value);
-		        plane.setLocation(vor_rad.getXCoord(), vor_rad.getYCoord());
+		        canvas.redraw();
 		      }
 		    });
 		
@@ -196,7 +205,7 @@ public class Interface {
 		        vor_rad.setYCoord(value*Interface_Const.INVERT + 
 		        		Interface_Const.p_cy);
 		        System.out.println("PlaneY is " + value);
-		        plane.setLocation(vor_rad.getXCoord(), vor_rad.getYCoord());
+		        canvas.redraw();
 		      }
 		    });
 		
@@ -208,6 +217,7 @@ public class Interface {
 		        System.out.println("Plane Angle is " + value);
 		        vor_rad.setPlaneAngle(value);
 		        cmp_cvs.redraw();
+		        canvas.redraw();
 		      }
 		    });
 		
@@ -219,6 +229,7 @@ public class Interface {
 		        System.out.println("OBS Angle is " + value);
 		        vor_rad.setOBSAngle(value);
 		        cmp_cvs.redraw();
+		        canvas.redraw();
 		      }
 		    });
 		
