@@ -71,7 +71,6 @@ public class Interface {
 		        int x = vor_rad.getXCoord();
 		        int y = vor_rad.getYCoord();
 		        
-		        
 		        Transform transform = new Transform(Disp);
 		        transform.translate(x + plane_box.width/2, y + plane_box.height/2);
 		        transform.rotate(-vor_rad.getPlaneAngle());
@@ -86,7 +85,8 @@ public class Interface {
 		        		Interface_Const.VERTICAL_OFFSET);
 		        transform.translate(-(line_box.width/2), -(8 + line_box.height/2));
 		        e.gc.setTransform(transform);
-		        e.gc.drawImage(line, 0, 8);
+		        e.gc.drawImage(line, Interface_Const.LINE_X_CENTER, 
+		        		Interface_Const.LINE_Y_CENTER);
 		        transform.dispose();
 		        
 		        transform = new Transform(Disp);
@@ -95,10 +95,9 @@ public class Interface {
 		        		Interface_Const.HORIZONTAL_OFFSET);
 		        transform.translate(-(line_box.width/2), -(8 + line_box.height/2));
 		        e.gc.setTransform(transform);
-		        e.gc.drawImage(line, 0, 8);
+		        e.gc.drawImage(line, Interface_Const.LINE_X_CENTER, 
+		        		Interface_Const.LINE_Y_CENTER);
 		        transform.dispose();
-		        
-
 	        }
 	    });
 	    canvas.pack();
