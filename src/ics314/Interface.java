@@ -8,13 +8,13 @@ import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.graphics.Transform;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Canvas;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
@@ -32,8 +32,8 @@ public class Interface {
 	public static void main(String[] args) {
 		
 		//Initial Display Interface Variables
-		Display Disp = new Display();
-		Shell Disp_Shell = new Shell(Disp,SWT.SHELL_TRIM & ~ SWT.RESIZE);
+		final Display Disp = new Display();
+		final Shell Disp_Shell = new Shell(Disp,SWT.SHELL_TRIM & ~ SWT.RESIZE);
 		Disp_Shell.setText("VOR Simulator");
 		GridLayout Disp_Layout = new GridLayout();
 		Disp_Layout.numColumns = Interface_Const.ColumnCount;
@@ -65,7 +65,7 @@ public class Interface {
 		plane.pack();
 		plane.setLocation(Interface_Const.p_cx,Interface_Const.p_cy);
 		
-		 Canvas canvas = new Canvas(Map_Disp,SWT.NO_REDRAW_RESIZE);
+		Canvas canvas = new Canvas(Map_Disp,SWT.NO_REDRAW_RESIZE);
 	    canvas.addPaintListener(new PaintListener() {
 	        public void paintControl(PaintEvent e) {
 	         e.gc.drawImage(imagelist.get(3),0,0);
@@ -73,46 +73,46 @@ public class Interface {
 	    });
 		
 		//Secondary displays
-		
 		Group Onboard_Disp = new Group(Disp_Shell, SWT.NONE);
 		Onboard_Disp.setText("Onboard Display");
-		Disp_Layout = new GridLayout();
-		Disp_Layout.numColumns = Interface_Const.DISP_COLUMN;
+		FillLayout sec_layout = new FillLayout();
+		sec_layout.type = SWT.VERTICAL;
+		Onboard_Disp.setLayout(sec_layout);
 		G_Data = new GridData(GridData.FILL, GridData.BEGINNING, true, false);
-		G_Data.widthHint = Interface_Const.BG_PIXELS/2;
+		G_Data.widthHint = Interface_Const.BG_PIXELS/2 + 5;
 		G_Data.heightHint = Interface_Const.BG_PIXELS + 5;
-		G_Data.horizontalSpan = Interface_Const.SingleColumn;
 		Onboard_Disp.setLayoutData(G_Data);
-		
-		final Label comp_plane = new Label(Onboard_Disp,SWT.CENTER);
-		comp_plane.setImage(imagelist.get(3));
-		comp_plane.pack();
-		comp_plane.setLocation(Interface_Const.cmpp_x,Interface_Const.cmpp_y);
-		
-		final Label obs_ptr = new Label(Onboard_Disp,SWT.CENTER);
-		obs_ptr.setImage(imagelist.get(7));
-		obs_ptr.pack();
-		obs_ptr.setLocation(95, 255);
-		
-		final Label dir_ptr = new Label(Onboard_Disp,SWT.CENTER);
-		dir_ptr.setImage(imagelist.get(10)); //10 for Blank (Center, 9 for TO, 8 for FROM
-		dir_ptr.pack();
-		dir_ptr.setLocation(115, 295);
-		
-		final Label dir_ptr2 = new Label(Onboard_Disp,SWT.CENTER);
-		dir_ptr2.setImage(imagelist.get(5)); //5 for Blank Center, 4 for left, 6 for right
-		dir_ptr2.pack();
-		dir_ptr2.setLocation(40, 320);
+			
+		final Image compass = imagelist.get(1);
+		final Rectangle rect = compass.getBounds();
+		final Image obs = imagelist.get(2);
+		final Image cmp_plane = imagelist.get(3);
+		final Image obs_ptr = imagelist.get(7);
+		final Image CENT_TF = imagelist.get(10);
+		final Image CENT_WE = imagelist.get(5);
+		final Canvas cmp_cvs = new Canvas(Onboard_Disp, SWT.NO_REDRAW_RESIZE);
+		cmp_cvs.setLocation(0,0);
 
-		Label compass = new Label(Onboard_Disp,SWT.CENTER);
-		compass.setImage(imagelist.get(1));
-		compass.setLocation(Interface_Const.onboard_x, Interface_Const.cmp_y);
-		compass.pack();
-		
-		Label obs = new Label(Onboard_Disp,SWT.CENTER);
-		obs.setImage(imagelist.get(2));
-		obs.setLocation(Interface_Const.onboard_x, Interface_Const.obs_y);
-		obs.pack();
+		cmp_cvs.addPaintListener(new PaintListener() {
+		      public void paintControl(PaintEvent e) {
+		        e.gc.drawImage(compass,0,0);
+		        e.gc.drawImage(obs, 0, 205);
+		        Transform transform = new Transform(Disp);
+		        transform.translate(rect.width/2, rect.height/2);
+		        transform.rotate(vor_rad.getPlaneAngle());
+		        transform.translate(-rect.width/2, -rect.height/2);
+		        e.gc.setTransform(transform);
+		        e.gc.drawImage(compass, 0,0);
+		        transform.dispose();
+		        
+		        e.gc.setTransform(null);
+		        e.gc.drawImage(cmp_plane,85,80);
+		        e.gc.drawImage(obs_ptr, 93, 238);
+		        e.gc.drawImage(CENT_TF,115,300);
+		        e.gc.drawImage(CENT_WE, 38, 320);
+		        
+		      }
+		    });
 
 		//Column #2 Tools
 		Group Simulator_Inputs = new Group(Disp_Shell, SWT.NONE);
@@ -197,7 +197,10 @@ public class Interface {
 		      public void widgetSelected(SelectionEvent e) {
 		        int selection = PlaneAngle.getSelection();
 		        int digits = PlaneAngle.getDigits();
-		        System.out.println("Plane Angle is " + (selection / Math.pow(10, digits)));
+		        int value = (int) (selection / Math.pow(10, digits));
+		        System.out.println("Plane Angle is " + value);
+		        vor_rad.setPlaneAngle(value);
+		        cmp_cvs.redraw();
 		      }
 		    });
 		
@@ -205,7 +208,10 @@ public class Interface {
 		      public void widgetSelected(SelectionEvent e) {
 		        int selection = OBSAngle.getSelection();
 		        int digits = OBSAngle.getDigits();
-		        System.out.println("OBS Angle is " + (selection / Math.pow(10, digits)));
+		        int value = (int) (selection / Math.pow(10, digits));
+		        System.out.println("OBS Angle is " + value);
+		        vor_rad.setOBSAngle(value);
+		        cmp_cvs.redraw();
 		      }
 		    });
 		
