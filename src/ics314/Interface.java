@@ -115,7 +115,7 @@ public class Interface {
 		        
 		        transform = new Transform(Disp);
 		        transform.translate(0 + rect.width/2, (205 + rect.height/2));
-		        transform.rotate(vor_rad.getOBSAngle());
+		        transform.rotate(-vor_rad.getOBSAngle());
 		        transform.translate(-rect.width/2, -(205+rect.height/2));
 		        e.gc.setTransform(transform);
 		        e.gc.drawImage(obs, 0,205);
