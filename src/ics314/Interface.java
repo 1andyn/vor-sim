@@ -63,7 +63,8 @@ public class Interface {
 		final Image background = imagelist.get(0);
 		final Image line = imagelist.get(12);
 		final Rectangle line_box = line.getBounds();
-		final Canvas canvas = new Canvas(Map_Disp,SWT.NO_REDRAW_RESIZE);
+		final Canvas canvas = new Canvas(Map_Disp,SWT.NO_REDRAW_RESIZE |
+				SWT.DOUBLE_BUFFERED);
 	    canvas.addPaintListener(new PaintListener() {
 	        public void paintControl(PaintEvent e) {
 		        e.gc.drawImage(background, 0, 0);
@@ -120,7 +121,8 @@ public class Interface {
 		final Image obs_ptr = imagelist.get(7);
 		final Image CENT_TF = imagelist.get(10);
 		final Image CENT_WE = imagelist.get(5);
-		final Canvas cmp_cvs = new Canvas(Onboard_Disp, SWT.NO_REDRAW_RESIZE);
+		final Canvas cmp_cvs = new Canvas(Onboard_Disp, SWT.NO_REDRAW_RESIZE |
+				SWT.DOUBLE_BUFFERED);
 		cmp_cvs.setLocation(0,0);
 
 		cmp_cvs.addPaintListener(new PaintListener() {
