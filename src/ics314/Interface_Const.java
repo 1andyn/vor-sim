@@ -42,8 +42,8 @@ public interface Interface_Const {
 	static final int cmpp_x = 88;
 	static final int cmpp_y = 100;
 	
-	static final int p_cx = 185;
-	static final int p_cy = 192;
+	static final int p_cx = 185; //CENTER X COORDINATE FOR PLANE
+	static final int p_cy = 192;//CENTER Y COORDINATE FOR PLANE
 	
 	static final int LINE_X_CENTER = 0;
 	static final int LINE_Y_CENTER = 8;
