@@ -38,12 +38,14 @@ public class Radio {
 	
 	public void updateToFrom()
 	{
-		 NORTH_SOUTH = VOR_CALC.calculateToFrom();
+		 NORTH_SOUTH = VOR_CALC.calculateToFrom(PLANE_X_COORD,
+				 PLANE_Y_COORD,OBS_ANGLE);
 	}
 	
 	public void updateWestEast()
 	{
-		WEST_EAST = VOR_CALC.calculateToFrom();
+		WEST_EAST = VOR_CALC.calculateToFrom(PLANE_X_COORD,
+				 PLANE_Y_COORD,OBS_ANGLE);
 	}
 	
 	public int getToFrom(){
