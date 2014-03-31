@@ -7,9 +7,11 @@ public class Radio {
 	private int OBS_ANGLE;
 	private int WEST_EAST;
 	private int NORTH_SOUTH;
+	private Calculation VOR_CALC;
 	
 	public Radio(int x, int y, int p, int o)
 	{
+		VOR_CALC = new Calculation();
 		PLANE_X_COORD = x;
 		PLANE_Y_COORD = y;
 		PLANE_ANGLE = p;
@@ -25,6 +27,7 @@ public class Radio {
 	
 	private void initRadio()
 	{
+		VOR_CALC = new Calculation();
 		PLANE_X_COORD = Interface_Const.p_cx;
 		PLANE_Y_COORD = Interface_Const.p_cy;
 		PLANE_ANGLE = Interface_Const.START_ANGLE;
@@ -35,12 +38,20 @@ public class Radio {
 	
 	public void updateToFrom()
 	{
-		//Uses Calculation 
+		 NORTH_SOUTH = VOR_CALC.calculateToFrom();
 	}
 	
 	public void updateWestEast()
 	{
-		//Uses Calculation 
+		WEST_EAST = VOR_CALC.calculateToFrom();
+	}
+	
+	public int getToFrom(){
+		return NORTH_SOUTH;
+	}
+	
+	public int getWestEast(){
+		return WEST_EAST;
 	}
 	
 	public void setPlaneAngle(int angle)
