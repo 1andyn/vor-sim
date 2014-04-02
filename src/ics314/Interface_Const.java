@@ -11,6 +11,7 @@ public interface Interface_Const {
 	static final int CENTER = 0;
 	static final int WEST = -1;
 	static final int EAST = 1;
+	static final int UNCHANGED = -2;
 	
 	//Widget Constants
 	static final int DISP_COLUMN = 1;
