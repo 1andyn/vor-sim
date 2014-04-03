@@ -44,7 +44,7 @@ public class Radio {
 	
 	public void updateWestEast()
 	{
-		WEST_EAST = VOR_CALC.calculateToFrom(PLANE_X_COORD,
+		WEST_EAST = VOR_CALC.calculateWestEast(PLANE_X_COORD,
 				 PLANE_Y_COORD,OBS_ANGLE);
 	}
 	
