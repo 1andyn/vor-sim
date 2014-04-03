@@ -20,41 +20,40 @@ public class Calculation {
 		WESTEAST = Interface_Const.CENTER;
 	}
 	
-	public int calculateToFrom(int x, int y, int angle)
+	private void setPlaneCoords(int x, int y)
 	{
 		PLANE_COORD_X = x - Interface_Const.p_cx;
-		PLANE_COORD_Y= y - Interface_Const.p_cy;
-		
-		int rotated_x = getRotatedX(angle);
-		int rotated_y = getRotatedY(angle);
-
-		updateOutputs(rotated_x, rotated_y, angle);
+		PLANE_COORD_Y= Interface_Const.INVERT*(y - Interface_Const.p_cy);
+	}
+	
+	public int calculateToFrom(int x, int y, int angle)
+	{
+		setPlaneCoords(x,y);
+		updateOutputs(angle);
 		return TOFROM;
 	}
 	
 	public int calculateWestEast(int x, int y, int angle)
 	{
-		PLANE_COORD_X = x - Interface_Const.p_cx;
-		PLANE_COORD_Y= y - Interface_Const.p_cy;
-		
-		int rotated_x = getRotatedX(angle);
-		int rotated_y = getRotatedY(angle);
-
-		updateOutputs(rotated_x, rotated_y, angle);
+		setPlaneCoords(x,y);
+		updateOutputs(angle);
 		return WESTEAST;	
 	}
 	
-	
-	private void updateOutputs(int r_x, int r_y, int angle)
+	private void updateOutputs(int angle)
 	{
 		int plane_angle;
-		if(PLANE_COORD_Y == 0){
+		if(PLANE_COORD_Y == 0 || PLANE_COORD_X == 0){
 			plane_angle = 0;
 		} else {
-			plane_angle = (int)Math.asin(PLANE_COORD_X/PLANE_COORD_Y);
+			plane_angle = (int)Math.atan(PLANE_COORD_X/PLANE_COORD_Y);
 		}
 		
 		int norm_angle = normalizedAngle(plane_angle);
+		System.out.println("X" + PLANE_COORD_X);
+		System.out.println("Y:" + PLANE_COORD_Y);
+		System.out.println("Normalized Angle: " + norm_angle);
+		
 		if(norm_angle == angle){
 			TOFROM = WESTEAST = Interface_Const.CENTER;
 			return;
@@ -81,27 +80,7 @@ public class Calculation {
 	public int normalizedAngle(int angle) 
 	{
 		return ((angle + Interface_Const.TWO_PI)%
-				Interface_Const.TWO_PI);
+			Interface_Const.TWO_PI);
 	}
-	
-	/* Angle is negative since negative angle rotated CLOCK WISE*/
-	
-	private int getRotatedX(int angle)
-	{
-		float cosine =(float)Math.cos(-angle);
-		float sine = (float)Math.sin(-angle);
-		int new_x = (int)(PLANE_COORD_X*cosine -PLANE_COORD_Y*sine);
-		return new_x;
-	}
-	
-	private int getRotatedY(int angle)
-	{
-		float cosine =(float)Math.cos(-angle);
-		float sine = (float)Math.sin(-angle);
-		int new_y = (int)(PLANE_COORD_X*sine + PLANE_COORD_Y*cosine);
-		return new_y;
-	}
-	
-
 	
 }
