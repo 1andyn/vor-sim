@@ -148,8 +148,8 @@ public class Interface {
 		     
 		        e.gc.setTransform(null);
 		        
-		        e.gc.drawImage(icfg.getTFImage(imagelist, vor_rad),115,300);
-		        e.gc.drawImage(icfg.getWEImage(imagelist, vor_rad),38, 320);
+		        e.gc.drawImage(icfg.getWEImage(imagelist, vor_rad),115,300);
+		        e.gc.drawImage(icfg.getTFImage(imagelist, vor_rad),38, 320);
 		        
 		        
 		        /* Static Draws */
