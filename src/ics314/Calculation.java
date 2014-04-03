@@ -47,11 +47,15 @@ public class Calculation {
 	
 	private void updateOutputs(int r_x, int r_y, int angle)
 	{
-		
-
-
+		int plane_angle = (int)Math.asin(PLANE_COORD_X/PLANE_COORD_Y);
+		int norm_angle = normalizedAngle(plane_angle);
 	}
 
+	private int normalizedAngle(int angle) 
+	{
+		return ((angle + Interface_Const.TWO_PI)/
+				Interface_Const.TWO_PI);
+	}
 	
 	/* Angle is negative since negative angle rotated CLOCK WISE*/
 	
