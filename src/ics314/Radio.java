@@ -48,6 +48,12 @@ public class Radio {
 				 PLANE_Y_COORD,OBS_ANGLE);
 	}
 	
+	public void updateDisplays()
+	{
+		updateToFrom();
+		updateWestEast();
+	}
+	
 	public int getToFrom(){
 		return NORTH_SOUTH;
 	}
