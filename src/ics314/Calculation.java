@@ -45,15 +45,36 @@ public class Calculation {
 	}
 	
 	
-	public void updateOutputs(int r_x, int r_y, int angle)
+	private void updateOutputs(int r_x, int r_y, int angle)
 	{
 		int plane_angle = (int)Math.asin(PLANE_COORD_X/PLANE_COORD_Y);
 		int norm_angle = normalizedAngle(plane_angle);
+		if(norm_angle == angle){
+			TOFROM = WESTEAST = Interface_Const.CENTER;
+			return;
+		} else {
+			if(norm_angle < angle + Interface_Const.HALF_PI) {
+				TOFROM = Interface_Const.FROM;
+				WESTEAST = Interface_Const.EAST;
+			} else if (norm_angle < angle + Interface_Const.PI) {
+				TOFROM = Interface_Const.TO;
+				WESTEAST = Interface_Const.EAST;
+			} else if (norm_angle < angle + Interface_Const.THREE_FORTH_PI) {
+				TOFROM = Interface_Const.TO;
+				WESTEAST = Interface_Const.WEST;
+			} else if (norm_angle < angle + Interface_Const.TWO_PI) {
+				TOFROM = Interface_Const.FROM;
+				WESTEAST = Interface_Const.WEST;
+			} else {
+				
+			}
+		}
+
 	}
 
-	private int normalizedAngle(int angle) 
+	public int normalizedAngle(int angle) 
 	{
-		return ((angle + Interface_Const.TWO_PI)/
+		return ((angle + Interface_Const.TWO_PI)%
 				Interface_Const.TWO_PI);
 	}
 	
