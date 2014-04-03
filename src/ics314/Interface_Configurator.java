@@ -64,10 +64,11 @@ public class Interface_Configurator {
 	
 	public Image getTFImage(List<Image> images, Radio rad)
 	{
+		System.out.println(rad.getWestEast());
         switch(rad.getWestEast()){
         case Interface_Const.CENTER: return images.get(5);
-        case Interface_Const.WEST: return images.get(4);
-        case Interface_Const.EAST: return images.get(6);
+        case Interface_Const.WEST: return images.get(6);
+        case Interface_Const.EAST: return images.get(4);
         default: return images.get(5);
         }
 	}

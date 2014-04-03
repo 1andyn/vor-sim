@@ -46,7 +46,6 @@ public class Calculation {
 		double opp = PLANE_COORD_X;
 		double adj = PLANE_COORD_Y;
 		int plane_angle = (int)Math.toDegrees(Math.atan2(opp,adj));
-
 		int norm_angle = normalizedAngle(plane_angle);
 		
 		if(norm_angle == angle){
@@ -56,19 +55,15 @@ public class Calculation {
 			if(norm_angle < angle + Interface_Const.HALF_PI) {
 				TOFROM = Interface_Const.FROM;
 				WESTEAST = Interface_Const.EAST;
-				System.out.println("Q1");
 			} else if (norm_angle < angle + Interface_Const.PI) {
 				TOFROM = Interface_Const.TO;
 				WESTEAST = Interface_Const.EAST;
-				System.out.println("Q2");
 			} else if (norm_angle < angle + Interface_Const.THREE_FORTH_PI) {
 				TOFROM = Interface_Const.TO;
 				WESTEAST = Interface_Const.WEST;
-				System.out.println("Q3");
 			} else if (norm_angle < angle + Interface_Const.TWO_PI) {
 				TOFROM = Interface_Const.FROM;
 				WESTEAST = Interface_Const.WEST;
-				System.out.println("Q4");
 			} else {
 				
 			}
