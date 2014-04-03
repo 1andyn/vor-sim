@@ -20,6 +20,12 @@ public interface Interface_Const {
 	static final int Q_III = 3;
 	static final int Q_IV = 4;
 	
+	//Angle Rotation Amounts
+	static final int HALF_PI = 90;
+	static final int PI = 180;
+	static final int THREE_FORTH_PI = 270;
+	static final int TWO_PI = 360;
+	
 	//Widget Constants
 	static final int DISP_COLUMN = 1;
 	static final int SUB_COL_COUNT = 2;
