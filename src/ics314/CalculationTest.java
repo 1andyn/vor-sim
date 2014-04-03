@@ -19,24 +19,17 @@ public class CalculationTest {
 	public void tearDown() throws Exception {
 	}
 
+	/*
 	@Test
 	public void testCalculation() {
 		fail("Not yet implemented");
-	}
+	}*/
 
 	@Test
-	public void testCalculateToFrom() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testCalculateWestEast() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testUpdateOutputs() {
-		fail("Not yet implemented");
+	public void testNormalizedAngle() {
+		Calculation test = new Calculation();
+		int x = test.normalizedAngle(90);
+		assertEquals("90 will normalize to 90", 90, x);
 	}
 
 }
