@@ -221,7 +221,7 @@ public class Interface {
 		        int digits = PlaneX.getDigits();
 		        int value = (int) (selection / Math.pow(10, digits));
 		        vor_rad.setXCoord(value + Interface_Const.p_cx);
-		        System.out.println("PlaneX is " + value);
+		        //System.out.println("PlaneX is " + value);
 		        canvas.redraw();
 		        cmp_cvs.redraw();
 		      }
@@ -234,7 +234,7 @@ public class Interface {
 		        int value = (int) (selection / Math.pow(10, digits));
 		        vor_rad.setYCoord(value*Interface_Const.INVERT + 
 		        		Interface_Const.p_cy);
-		        System.out.println("PlaneY is " + value);
+		        //System.out.println("PlaneY is " + value);
 		        canvas.redraw();
 		        cmp_cvs.redraw();
 		      }
@@ -245,7 +245,7 @@ public class Interface {
 		        int selection = PlaneAngle.getSelection();
 		        int digits = PlaneAngle.getDigits();
 		        int value = (int) (selection / Math.pow(10, digits));
-		        System.out.println("Plane Angle is " + value);
+		        //System.out.println("Plane Angle is " + value);
 		        vor_rad.setPlaneAngle(value);
 		        cmp_cvs.redraw();
 		        canvas.redraw();
@@ -257,7 +257,7 @@ public class Interface {
 		        int selection = OBSAngle.getSelection();
 		        int digits = OBSAngle.getDigits();
 		        int value = (int) (selection / Math.pow(10, digits));
-		        System.out.println("OBS Angle is " + value);
+		        //System.out.println("OBS Angle is " + value);
 		        vor_rad.setOBSAngle(value);
 		        cmp_cvs.redraw();
 		        canvas.redraw();
