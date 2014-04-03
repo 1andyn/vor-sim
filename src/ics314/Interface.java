@@ -29,7 +29,8 @@ public class Interface {
 	 * Third and fourt will be dedicated to Buttons, Texts, Interactbles 
 	 */
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		
 		//Initial Display Interface Variables
 		final Display Disp = new Display();
@@ -39,7 +40,7 @@ public class Interface {
 		Disp_Layout.numColumns = Interface_Const.ColumnCount;
 		Disp_Shell.setLayout(Disp_Layout);
 		GridData G_Data = new GridData(GridData.FILL, GridData.CENTER, true, false);
-		Interface_Configurator icfg = new Interface_Configurator();
+		final Interface_Configurator icfg = new Interface_Configurator();
 		
 		final Radio vor_rad = new Radio();
 		
@@ -119,8 +120,7 @@ public class Interface {
 		final Image obs = imagelist.get(2);
 		final Image cmp_plane = imagelist.get(3);
 		final Image obs_ptr = imagelist.get(7);
-		final Image CENT_TF = imagelist.get(10);
-		final Image CENT_WE = imagelist.get(5);
+		
 		final Canvas cmp_cvs = new Canvas(Onboard_Disp, SWT.NO_REDRAW_RESIZE |
 				SWT.DOUBLE_BUFFERED);
 		cmp_cvs.setLocation(0,0);
@@ -128,6 +128,8 @@ public class Interface {
 		cmp_cvs.addPaintListener(new PaintListener() {
 		      public void paintControl(PaintEvent e) {
 
+		    	vor_rad.updateDisplays();
+		    	  
 		        Transform transform = new Transform(Disp);
 		        transform.translate(rect.width/2, rect.height/2);
 		        transform.rotate(vor_rad.getPlaneAngle());
@@ -145,10 +147,14 @@ public class Interface {
 		        transform.dispose();
 		     
 		        e.gc.setTransform(null);
-		        e.gc.drawImage(cmp_plane,85,80);
+		        
+		        e.gc.drawImage(icfg.getTFImage(imagelist, vor_rad),115,300);
+		        e.gc.drawImage(icfg.getWEImage(imagelist, vor_rad),38, 320);
+		        
+		        
+		        /* Static Draws */
 		        e.gc.drawImage(obs_ptr, 93, 238);
-		        e.gc.drawImage(CENT_TF,115,300);
-		        e.gc.drawImage(CENT_WE, 38, 320);
+		        e.gc.drawImage(cmp_plane,85,80);
 		        
 		      }
 		    });
@@ -217,6 +223,7 @@ public class Interface {
 		        vor_rad.setXCoord(value + Interface_Const.p_cx);
 		        System.out.println("PlaneX is " + value);
 		        canvas.redraw();
+		        cmp_cvs.redraw();
 		      }
 		    });
 		
@@ -229,6 +236,7 @@ public class Interface {
 		        		Interface_Const.p_cy);
 		        System.out.println("PlaneY is " + value);
 		        canvas.redraw();
+		        cmp_cvs.redraw();
 		      }
 		    });
 		
@@ -263,6 +271,7 @@ public class Interface {
 			}
 		}
 		Disp.dispose();
+		
 	}
-	
+
 }
