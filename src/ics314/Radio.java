@@ -36,7 +36,6 @@ public class Radio {
 		WEST_EAST = Interface_Const.CENTER;
 	}
 	
-	/*
 	public void updateToFrom()
 	{
 		 NORTH_SOUTH = VOR_CALC.calculateToFrom(PLANE_X_COORD,
@@ -48,7 +47,6 @@ public class Radio {
 		WEST_EAST = VOR_CALC.calculateToFrom(PLANE_X_COORD,
 				 PLANE_Y_COORD,OBS_ANGLE);
 	}
-	*/
 	
 	public int getToFrom(){
 		return NORTH_SOUTH;
