@@ -28,8 +28,18 @@ public class CalculationTest {
 	@Test
 	public void testNormalizedAngle() {
 		Calculation test = new Calculation();
-		int x = test.normalizedAngle(90);
-		assertEquals("90 will normalize to 90", 90, x);
+		for(int x = -1; x > -360; x--){
+			int y = test.normalizedAngle(x);
+			assertEquals("Testing normalization", 360+x, y);
+		}
+		
+		for(int y = 0; y < 360; y++){
+			int x = test.normalizedAngle(y);
+			assertEquals("Testing normalization", x, y);
+		}
+
 	}
 
+	
+	
 }
