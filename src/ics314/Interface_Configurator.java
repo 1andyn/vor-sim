@@ -51,4 +51,25 @@ public class Interface_Configurator {
 		Image obs_line = new Image(disp, "rsrc/obs_line.png"); //12
 		images.add(obs_line);
 	}
+	
+	public Image getWEImage(List<Image> images, Radio rad)
+	{
+        switch(rad.getToFrom()){
+        case Interface_Const.CENTER: return images.get(10);
+        case Interface_Const.TO: return images.get(9);
+        case Interface_Const.FROM: return images.get(8);
+        default: return images.get(10);
+        }
+	}
+	
+	public Image getTFImage(List<Image> images, Radio rad)
+	{
+        switch(rad.getWestEast()){
+        case Interface_Const.CENTER: return images.get(5);
+        case Interface_Const.WEST: return images.get(4);
+        case Interface_Const.EAST: return images.get(6);
+        default: return images.get(5);
+        }
+	}
+	
 }
