@@ -13,6 +13,13 @@ public interface Interface_Const {
 	static final int EAST = 1;
 	static final int UNCHANGED = -2;
 	
+	//Quadrant Consts
+	static final int Q_CENTER = 0;
+	static final int Q_I = 1;
+	static final int Q_II = 2;
+	static final int Q_III = 3;
+	static final int Q_IV = 4;
+	
 	//Widget Constants
 	static final int DISP_COLUMN = 1;
 	static final int SUB_COL_COUNT = 2;
