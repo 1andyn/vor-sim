@@ -19,11 +19,21 @@ public class CalculationTest {
 	public void tearDown() throws Exception {
 	}
 
-	/*
 	@Test
 	public void testCalculation() {
+		Calculation test = new Calculation();
 		fail("Not yet implemented");
-	}*/
+	}
+
+	@Test
+	public void testCalculateToFrom() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testCalculateWestEast() {
+		fail("Not yet implemented");
+	}
 
 	@Test
 	public void testNormalizedAngle() {
@@ -40,6 +50,4 @@ public class CalculationTest {
 
 	}
 
-	
-	
 }
