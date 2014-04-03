@@ -45,7 +45,7 @@ public class Calculation {
 	}
 	
 	
-	private void updateOutputs(int r_x, int r_y, int angle)
+	public void updateOutputs(int r_x, int r_y, int angle)
 	{
 		int plane_angle = (int)Math.asin(PLANE_COORD_X/PLANE_COORD_Y);
 		int norm_angle = normalizedAngle(plane_angle);
