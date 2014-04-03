@@ -4,7 +4,6 @@ public class Calculation {
 	
 	private int PREV_COORD_X;
 	private int PREV_COORD_Y;
-	private int Quadrant;
 	
 	public Calculation()
 	{
@@ -15,7 +14,6 @@ public class Calculation {
 	{
 		PREV_COORD_X = Interface_Const.p_cx;
 		PREV_COORD_Y = Interface_Const.p_cy;
-		Quadrant = Interface_Const.Q_CENTER;
 	}
 	
 	public int calculateToFrom(int x, int y, int angle)
@@ -48,7 +46,7 @@ public class Calculation {
 			return rotatedByLessThanFourth(r_x, r_y, angle);
 		} else if (angle >= Interface_Const.HALF_PI && 
 				angle < Interface_Const.THREE_FORTH_PI) {
-			
+			return
 		}
 	}
 	
@@ -56,9 +54,21 @@ public class Calculation {
 	{
 		
 	}
-	private int rotatedByFourth()
-	private int rotatedByHalf()
-	private int rotatedByThreeFourth()
+	private int rotatedByFourth(int r_x, int r_y, int angle)
+	{
+		
+	}
+	
+	private int rotatedByHalf(int r_x, int r_y, int angle)
+	{
+		
+	}
+	
+	private int rotatedByThreeFourth(int r_x, int r_y, int angle)
+	{
+		
+	}
+	
 	
 	private int getRotatedX(int x, int y, int angle)
 	{
