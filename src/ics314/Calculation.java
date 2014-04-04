@@ -52,16 +52,16 @@ public class Calculation {
 			TOFROM = WESTEAST = Interface_Const.CENTER;
 			return;
 		} else {
-			if(norm_angle < angle + Interface_Const.HALF_PI) {
+			if(norm_angle + angle < angle + Interface_Const.HALF_PI) {
 				TOFROM = Interface_Const.FROM;
 				WESTEAST = Interface_Const.EAST;
-			} else if (norm_angle < angle + Interface_Const.PI) {
+			} else if (norm_angle+ angle  < angle + Interface_Const.PI) {
 				TOFROM = Interface_Const.TO;
 				WESTEAST = Interface_Const.EAST;
-			} else if (norm_angle < angle + Interface_Const.THREE_FORTH_PI) {
+			} else if (norm_angle + angle < angle + Interface_Const.THREE_FORTH_PI) {
 				TOFROM = Interface_Const.TO;
 				WESTEAST = Interface_Const.WEST;
-			} else if (norm_angle < angle + Interface_Const.TWO_PI) {
+			} else if (norm_angle + angle < angle + Interface_Const.TWO_PI) {
 				TOFROM = Interface_Const.FROM;
 				WESTEAST = Interface_Const.WEST;
 			} else {
