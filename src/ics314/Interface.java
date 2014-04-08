@@ -90,16 +90,7 @@ public class Interface {
 		        e.gc.drawImage(line, Interface_Const.LINE_X_CENTER, 
 		        		Interface_Const.LINE_Y_CENTER);
 		        transform.dispose();
-		        
-		        transform = new Transform(Disp);
-		        transform.translate(line_box.width/2, 8+line_box.height/2);
-		        transform.rotate(vor_rad.getOBSAngle()+ 
-		        		Interface_Const.HORIZONTAL_OFFSET);
-		        transform.translate(-(line_box.width/2), -(8 + line_box.height/2));
-		        e.gc.setTransform(transform);
-		        e.gc.drawImage(line, Interface_Const.LINE_X_CENTER, 
-		        		Interface_Const.LINE_Y_CENTER);
-		        transform.dispose();
+
 	        }
 	    });
 	    canvas.pack();
