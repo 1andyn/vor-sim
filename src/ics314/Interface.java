@@ -23,12 +23,6 @@ import org.eclipse.swt.widgets.Spinner;
 
 public class Interface {
 	
-	/*
-	 * First column will be dedicated to MAP Display
-	 * Second column will be dedicated to onboard VOR and Compass Display
-	 * Third and fourt will be dedicated to Buttons, Texts, Interactbles 
-	 */
-	
 	public static void main(String[] args) 
 	{
 		
@@ -37,11 +31,10 @@ public class Interface {
 		final Shell Disp_Shell = new Shell(Disp,SWT.SHELL_TRIM & ~ SWT.RESIZE);
 		Disp_Shell.setText("VOR Simulator");
 		GridLayout Disp_Layout = new GridLayout();
-		Disp_Layout.numColumns = Interface_Const.ColumnCount;
+		Disp_Layout.numColumns = Iface_Const.ColumnCount;
 		Disp_Shell.setLayout(Disp_Layout);
 		GridData G_Data = new GridData(GridData.FILL, GridData.CENTER, true, false);
 		final Interface_Configurator icfg = new Interface_Configurator();
-		
 		final Radio vor_rad = new Radio();
 		
 		//Resource Setup
@@ -55,15 +48,13 @@ public class Interface {
 		sec_layout.type = SWT.VERTICAL;
 		Onboard_Disp.setLayout(sec_layout);
 		G_Data = new GridData(GridData.FILL, GridData.BEGINNING, true, false);
-		G_Data.widthHint = Interface_Const.BG_PIXELS/2 + 5;
-		G_Data.heightHint = Interface_Const.BG_PIXELS + 5;
+		G_Data.widthHint = Iface_Const.BG_PIXELS;
+		G_Data.heightHint = Iface_Const.BG_PIXELS;
 		Onboard_Disp.setLayoutData(G_Data);
 			
-		final Image compass = imagelist.get(1);
-		final Rectangle rect = compass.getBounds();
-		final Image obs = imagelist.get(2);
-		final Image cmp_plane = imagelist.get(3);
-		final Image obs_ptr = imagelist.get(7);
+		final Image obs = imagelist.get(0);
+		final Rectangle rect = obs.getBounds();
+		final Image obs_ptr = imagelist.get(1);
 		
 		final Canvas cmp_cvs = new Canvas(Onboard_Disp, SWT.NO_REDRAW_RESIZE |
 				SWT.DOUBLE_BUFFERED);
@@ -71,21 +62,19 @@ public class Interface {
 
 		cmp_cvs.addPaintListener(new PaintListener() {
 		      public void paintControl(PaintEvent e) {
-
-		    	vor_rad.updateDisplays();
 		    	  
 		        Transform transform = new Transform(Disp);		      
 		        transform = new Transform(Disp);
-		        transform.translate(0 + rect.width/2, (205 + rect.height/2));
+		        transform.translate(0 + rect.width/2, 
+		        		(Iface_Const.OBS_Y_OFFSET + rect.height/2));
 		        transform.rotate(-vor_rad.getOBSAngle());
-		        transform.translate(-rect.width/2, -(205+rect.height/2));
+		        transform.translate(-rect.width/2, -
+		        		(Iface_Const.OBS_Y_OFFSET +rect.height/2));
 		        e.gc.setTransform(transform);
-		        e.gc.drawImage(obs, 0,205);
+		        e.gc.drawImage(obs, 0,Iface_Const.OBS_Y_OFFSET);
 		        transform.dispose();
 		     
-		        e.gc.setTransform(null);		      
-		        e.gc.drawImage(icfg.getTFImage(imagelist, vor_rad),38, 320);
-		        
+		        e.gc.setTransform(null);		      	        
 		        
 		        /* Static Draws */
 		        e.gc.drawImage(obs_ptr, 93, 238);
@@ -97,9 +86,9 @@ public class Interface {
 		Group Simulator_Inputs = new Group(Disp_Shell, SWT.NONE);
 		Simulator_Inputs.setText("Simulator Inputs");
 		Disp_Layout = new GridLayout();
-		Disp_Layout.numColumns = Interface_Const.SUB_COL_COUNT;
+		Disp_Layout.numColumns = Iface_Const.SUB_COL_COUNT;
 		G_Data = new GridData(GridData.FILL, GridData.BEGINNING, true, false);
-		G_Data.horizontalSpan = Interface_Const.SUB_COL_COUNT;
+		G_Data.horizontalSpan = Iface_Const.SUB_COL_COUNT;
 		G_Data.heightHint = 60;
 		Simulator_Inputs.setLayoutData(G_Data);		
 	    
@@ -121,7 +110,6 @@ public class Interface {
 		        int selection = OBSAngle.getSelection();
 		        int digits = OBSAngle.getDigits();
 		        int value = (int) (selection / Math.pow(10, digits));
-		        //System.out.println("OBS Angle is " + value);
 		        vor_rad.setOBSAngle(value);
 		        cmp_cvs.redraw();
 		      }
