@@ -20,18 +20,10 @@ public class Radio {
 	private void initRadio()
 	{
 		VOR_CALC = new Calculation();
-		OBS_ANGLE = Interface_Const.START_ANGLE;
+		OBS_ANGLE = Iface_Const.START_ANGLE;
 
 	}
 	
-
-	
-
-
-	
-
-
-
 	public void setOBSAngle(int angle)
 	{
 		OBS_ANGLE = angle;
