@@ -5,6 +5,10 @@ public interface Iface_Const {
 	//Inversion
 	static final int INVERT = -1;
 	
+	//GOOD BAD
+	static final int BAD = 0;
+	static final int GOOD = 1;
+	
 	//Direction Constants
 	static final int FROM = 1;
 	static final int TO = -1;
@@ -36,7 +40,8 @@ public interface Iface_Const {
 	static final int START_ANGLE = 0;
 	static final int ANGLE_INCR = 1;
 	static final int ANGLE_PAGEINCR = 20;
-	static final int BG_PIXELS = 400;
+	static final int BG_PIXELS = 367;
+	static final int OBS_Y_OFFSET = 0;
 	
 	//Math
 	static final float DEGREES_PER_PI = 180;
