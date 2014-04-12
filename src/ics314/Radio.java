@@ -4,11 +4,11 @@ public class Radio {
 	private int DEFLECTION;
 	private int OBS_ANGLE;
 	private int GOOD_BAD;
-	private Calculation VOR_CALC;
+	//private Calculation VOR_CALC;
 	
 	public Radio(int x, int y, int p, int o)
 	{
-		VOR_CALC = new Calculation();
+		//VOR_CALC = new Calculation();
 		OBS_ANGLE = o;
 	}
 	
@@ -22,10 +22,15 @@ public class Radio {
 		return GOOD_BAD;
 	}
 	
+	public int getDeflection()
+	{
+		return DEFLECTION;
+	}
+	
 	private void initRadio()
 	{
-		VOR_CALC = new Calculation();
-		OBS_ANGLE = Iface_Const.START_ANGLE;
+		//VOR_CALC = new Calculation();
+		OBS_ANGLE = Vor_Const.START_ANGLE;
 
 	}
 	
