@@ -73,9 +73,17 @@ public class Interface {
 		       
 		        /* Static Draws */
 		       icfg.drawStaticResources(e, imagelist);
-		        
+		       
+		       /* Draw GoodBad */
+		       e.gc.drawImage(icfg.getGBImage(imagelist, vor_rad),
+		    		   Vor_Const.GB_X, Vor_Const.GB_Y);
+		       
+		       /* Draw ToFrom */
+		       e.gc.drawImage(icfg.getTFImage(imagelist, 0),
+		    		   Vor_Const.TF_X, Vor_Const.TF_Y);
+       
 		       /* Draw Needle */
-		       icfg.drawDeflectionLine(Disp, e, vor_rad.getDeflection());
+		       icfg.drawDeflectionLine(Disp, e, 0);
 		       
 		      }
 		    });
@@ -93,12 +101,12 @@ public class Interface {
 		Label OBSLabel = new Label(Simulator_Inputs, SWT.SINGLE);
 		OBSLabel.setText("OBS Knob Angle (Degrees): ");
 		OBSLabel.pack();
-		OBSLabel.setLocation(10,20);
+		OBSLabel.setLocation(Vor_Const.LABEL_X,Vor_Const.LABEL_Y);
 
 		final Spinner OBSAngle = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
 		icfg.SpinnerAngleConfig(OBSAngle);
 		OBSAngle.pack();
-		OBSAngle.setLocation(160,20);
+		OBSAngle.setLocation(Vor_Const.SPINNER_X, Vor_Const.SPINNER_Y);
 
 		Disp_Shell.pack();
 		Disp_Shell.open();

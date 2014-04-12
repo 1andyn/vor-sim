@@ -27,7 +27,7 @@ public interface Vor_Const {
 	
 	//Direction Constants
 	static final int FROM = 1;
-	static final int TO = -1;
+	static final int TO = 0;
 	
 	//Angle Rotation Amounts
 	static final int HALF_PI = 90;
@@ -60,12 +60,20 @@ public interface Vor_Const {
 	static final int I_PTR_Y = 92;
 	static final int I_DOT_X = 1;
 	static final int I_DOT_Y = 40;
+	static final int GB_X = 110;
+	static final int GB_Y = 160;
+	static final int TF_X = 210;
+	static final int TF_Y = 160;
+	static final int LABEL_X = 10;
+	static final int LABEL_Y = 20;
+	static final int SPINNER_X = 160;
+	static final int SPINNER_Y = 20;
 	
 	//Needle Constants
 	static final int NEEDLE_TOP_X = 184;
 	static final int NEEDLE_TOP_Y = 120;
 	static final int NEEDLE_BOTTOM_X = 184;
-	static final int NEEDLE_BOTTOM_Y = 250;
-	static final int NEEDLE_OFFSET = 17;
+	static final int NEEDLE_BOTTOM_Y = 228;
+	static final int NEEDLE_OFFSET = 14;
 	
 }

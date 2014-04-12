@@ -1,17 +1,11 @@
 package ics314;
 
+import java.util.Random;
+
 public class Radio {
-	private int DEFLECTION;
 	private int OBS_ANGLE;
 	private int GOOD_BAD;
-	//private Calculation VOR_CALC;
-	
-	public Radio(int x, int y, int p, int o)
-	{
-		//VOR_CALC = new Calculation();
-		OBS_ANGLE = o;
-	}
-	
+
 	public Radio()
 	{
 		initRadio();
@@ -22,16 +16,10 @@ public class Radio {
 		return GOOD_BAD;
 	}
 	
-	public int getDeflection()
-	{
-		return DEFLECTION;
-	}
-	
 	private void initRadio()
 	{
-		//VOR_CALC = new Calculation();
 		OBS_ANGLE = Vor_Const.START_ANGLE;
-
+		generateRandomGoodBad();
 	}
 	
 	public void setOBSAngle(int angle)
@@ -44,6 +32,13 @@ public class Radio {
 	{
 		int temp = OBS_ANGLE;
 		return temp;
+	}
+	
+	public void generateRandomGoodBad()
+	{
+		Random rand = new Random();
+		int gb = rand.nextInt(2);
+		GOOD_BAD = gb;
 	}
 	
 	//Debug
