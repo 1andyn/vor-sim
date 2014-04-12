@@ -71,42 +71,40 @@ public class Interface_Configurator {
 		e.gc.setForeground(white);
 		e.gc.setLineWidth(Vor_Const.NEEDLE_WIDTH);
 		
-		int dev = 6;
+		int dev = -5;
 		
-		int offset = 3;
+		int offset = 4;
 		
 		int Angle = offset*dev;
 		double Rad = Math.toRadians(Angle);
 		
 		int Needle_X, Needle_Y;
-		Needle_X = (int) (Vor_Const.NEEDLE_BOTTOM_X * Math.cos(Rad) -
+		Needle_X = (int) (Vor_Const.NEEDLE_BOTTOM_X * Math.cos(Rad) +
 				Vor_Const.NEEDLE_BOTTOM_Y * Math.sin(Rad));
-		Needle_Y = (int) (Vor_Const.NEEDLE_BOTTOM_X * Math.sin(Rad) +
+		Needle_Y = (int) (-Vor_Const.NEEDLE_BOTTOM_X * Math.sin(Rad) +
 				Vor_Const.NEEDLE_BOTTOM_Y * Math.cos(Rad));
 		
 		e.gc.drawLine(Vor_Const.NEEDLE_TOP_X, Vor_Const.NEEDLE_TOP_Y, 
 				Needle_X, Needle_Y);
 	}
 	
-//	public Image getGBImage(List<Image> images, Radio rad)
-//	{
-//        switch(rad.getToFrom()){
-//        case Interface_Const.CENTER: return images.get(10);
-//        case Interface_Const.TO: return images.get(9);
-//        case Interface_Const.FROM: return images.get(8);
-//        default: return images.get(10);
-//        }
-//	}
-//	
-//	public Image getTFImage(List<Image> images, Radio rad)
-//	{
-//		System.out.println(rad.getWestEast());
-//        switch(rad.getWestEast()){
-//        case Interface_Const.CENTER: return images.get(5);
-//        case Interface_Const.WEST: return images.get(6);
-//        case Interface_Const.EAST: return images.get(4);
-//        default: return images.get(5);
-//        }
-//	}
+	public Image getGBImage(List<Image> images, Radio rad)
+	{
+        switch(rad.getGoodBad()) {
+        case Vor_Const.BAD: return images.get(Vor_Const.I_BAD);
+        case Vor_Const.GOOD: return images.get(Vor_Const.I_GOOD);
+        default: return images.get(Vor_Const.I_GOOD);
+        }
+	}
+	
+	public Image getTFImage(List<Image> images, int tofrom)
+	{
+		System.out.println(tofrom);
+        switch(tofrom){
+        case Vor_Const.TO: return images.get(Vor_Const.I_TO);
+        case Vor_Const.FROM: return images.get(Vor_Const.I_FROM);
+        default: return images.get(Vor_Const.I_FROM);
+        }
+	}
 	
 }

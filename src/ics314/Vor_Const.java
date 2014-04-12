@@ -56,16 +56,16 @@ public interface Vor_Const {
 	static final float DEGREES_PER_PI = 180;
 	
 	//Fixed Coordinates
-	static final int I_PTR_X = 179;
-	static final int I_PTR_Y = 90;
+	static final int I_PTR_X = 177;
+	static final int I_PTR_Y = 92;
 	static final int I_DOT_X = 1;
 	static final int I_DOT_Y = 40;
 	
 	//Needle Constants
-	static final int NEEDLE_TOP_X = 185;
+	static final int NEEDLE_TOP_X = 184;
 	static final int NEEDLE_TOP_Y = 120;
-	static final int NEEDLE_BOTTOM_X = 185;
-	static final int NEEDLE_BOTTOM_Y = 270;
+	static final int NEEDLE_BOTTOM_X = 184;
+	static final int NEEDLE_BOTTOM_Y = 250;
 	static final int NEEDLE_OFFSET = 17;
 	
 }
