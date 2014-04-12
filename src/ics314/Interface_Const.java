@@ -29,7 +29,7 @@ public interface Interface_Const {
 	static final int MAXCOORD = 180;
 	static final int MINCOORD = -180;
 	static final int MINANGLE = 0;
-	static final int MAXANGLE = 360;
+	static final int MAXANGLE = 359;
 	static final int START_COORD = 0;
 	static final int COORD_INCREMENT = 1;
 	static final int COORD_PAGE_INCREMENT = 5;
