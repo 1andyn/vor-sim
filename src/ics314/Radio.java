@@ -17,6 +17,11 @@ public class Radio {
 		initRadio();
 	}
 	
+	public int getGoodBad()
+	{
+		return GOOD_BAD;
+	}
+	
 	private void initRadio()
 	{
 		VOR_CALC = new Calculation();
