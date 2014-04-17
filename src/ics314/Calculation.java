@@ -13,10 +13,18 @@ public class Calculation {
 	
 	private void init_Calc()
 	{
-
+		RADIO_DEFLECTION = 0;
 	}
 	
-
+	int calculateBad(Radio vor)
+	{
+		return 0;
+	}
+	
+	int calculateDeflection()
+	{
+		return 0;
+	}
 
 	public int normalizedAngle(int angle) 
 	{
