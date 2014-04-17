@@ -39,6 +39,8 @@ public class Interface_Configurator {
 		images.add(dot);
 		Image icon = new Image(disp, "rsrc/shellicon.gif"); //7
 		images.add(icon);
+		Image needle = new Image(disp,"rsrc/needle.png"); //8
+		images.add(needle);
 	}
 	
 	//Function for Rotating OBS
@@ -50,6 +52,19 @@ public class Interface_Configurator {
         transform.translate(Vor_Const.OBS_COORD + rect.width/2, 
         		(Vor_Const.OBS_COORD + rect.height/2));
         transform.rotate(-vor_rad.getOBSAngle());
+        transform.translate(-rect.width/2, -
+        		(Vor_Const.OBS_COORD +rect.height/2));
+        return transform;
+	}
+	
+	public Transform getTransform(Display disp, int angle, 
+			Rectangle rect)
+	{
+		Transform transform = new Transform(disp);		      
+        transform = new Transform(disp);
+        transform.translate(Vor_Const.OBS_COORD + rect.width/2, 
+        		(Vor_Const.OBS_COORD + rect.height/2));
+        transform.rotate(-angle);
         transform.translate(-rect.width/2, -
         		(Vor_Const.OBS_COORD +rect.height/2));
         return transform;

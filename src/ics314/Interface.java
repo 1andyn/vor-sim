@@ -53,8 +53,9 @@ public class Interface {
 		G_Data.widthHint = Vor_Const.BG_PIXELS;
 		G_Data.heightHint = Vor_Const.BG_PIXELS;
 		Onboard_Disp.setLayoutData(G_Data);
-			
+		
 		final Image obs = imagelist.get(Vor_Const.I_OBS);
+		final Image needle = imagelist.get(Vor_Const.I_NDLE);
 		final Rectangle rect = obs.getBounds();
 		
 		final Canvas cmp_cvs = new Canvas(Onboard_Disp, SWT.NO_REDRAW_RESIZE |
@@ -81,9 +82,13 @@ public class Interface {
 		       /* Draw ToFrom */
 		       e.gc.drawImage(icfg.getTFImage(imagelist, 0),
 		    		   Vor_Const.TF_X, Vor_Const.TF_Y);
-       
+
+		       int x = 0;
+		       transform = icfg.getTransform(Disp, x, rect);
+		       e.gc.setTransform(transform);
+		       e.gc.drawImage(needle, 0,-65);
 		       /* Draw Needle */
-		       icfg.drawDeflectionLine(Disp, e, 0);
+		       //icfg.drawDeflectionLine(Disp, e, 0);
 		       
 		      }
 		    });
@@ -118,6 +123,7 @@ public class Interface {
 		        int value = (int) (selection / Math.pow(10, digits));
 		        vor_rad.setOBSAngle(value);
 		        cmp_cvs.redraw();
+		        vor_rad.debugAngle();
 		      }
 		    });
 		

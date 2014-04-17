@@ -11,6 +11,7 @@ public interface Vor_Const {
 	static final int I_GOOD = 5;
 	static final int I_DOT = 6;
 	static final int I_ICON = 7;
+	static final int I_NDLE = 8;
 	
 	//Inversion
 	static final int INVERT = -1;
