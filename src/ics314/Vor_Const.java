@@ -31,6 +31,7 @@ public interface Vor_Const {
 	static final int TO = 0;
 	
 	//Angle Rotation Amounts
+	static final int PERPENDICULAR = 90;
 	static final int HALF_PI = 90;
 	static final int PI = 180;
 	static final int THREE_FORTH_PI = 270;

@@ -20,34 +20,26 @@ public class CalculationTest {
 	}
 
 	@Test
-	public void testCalculation() {
+	public void testGoodBad() {
 		Calculation test = new Calculation();
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testCalculateToFrom() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testCalculateWestEast() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testNormalizedAngle() {
-		Calculation test = new Calculation();
-		for(int x = -1; x > -360; x--){
-			int y = test.normalizedAngle(x);
-			assertEquals("Testing normalization", 360+x, y);
+		Radio vor = new Radio();
+		int result = test.calculateBad(vor);
+		if(vor.getGoodBad() == Vor_Const.BAD) {
+			assertEquals("test should return BAD", result, Vor_Const.BAD);
+		} else {
+			int interceptedRadial = vor.getRadioAngle();
+			int course = vor.getOBSAngle();
+			if(((interceptedRadial-course)% Vor_Const.PERPENDICULAR) == 0) {
+				assertEquals("test should return BAD", result, Vor_Const.BAD);
+			} else {
+				assertEquals("test should return GOOD", result, Vor_Const.GOOD);
+			}
 		}
+	}
+	
+	@Test
+	public void testToFromResult() {
 		
-		for(int y = 0; y < 360; y++){
-			int x = test.normalizedAngle(y);
-			assertEquals("Testing normalization", x, y);
-		}
-
 	}
 
 }

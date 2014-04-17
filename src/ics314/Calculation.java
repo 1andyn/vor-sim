@@ -21,15 +21,14 @@ public class Calculation {
 		return 0;
 	}
 	
-	int calculateDeflection()
+	int calculateToFrom(Radio vor)
 	{
 		return 0;
 	}
-
-	public int normalizedAngle(int angle) 
+	
+	int updateDeflection()
 	{
-		return ((angle + Vor_Const.TWO_PI)%
-			Vor_Const.TWO_PI);
+		return 0;
 	}
 	
 }
