@@ -57,6 +57,7 @@ public class Interface {
 		final Image obs = imagelist.get(Vor_Const.I_OBS);
 		final Image needle = imagelist.get(Vor_Const.I_NDLE);
 		final Rectangle rect = obs.getBounds();
+		final Rectangle n_rect = needle.getBounds();
 		
 		final Canvas cmp_cvs = new Canvas(Onboard_Disp, SWT.NO_REDRAW_RESIZE |
 				SWT.DOUBLE_BUFFERED);
@@ -84,9 +85,9 @@ public class Interface {
 		    		   Vor_Const.TF_X, Vor_Const.TF_Y);
 
 		       int x = 0;
-		       transform = icfg.getTransform(Disp, x, rect);
+		       transform = icfg.getTransform(Disp, x, n_rect);
 		       e.gc.setTransform(transform);
-		       e.gc.drawImage(needle, 0,-65);
+		       e.gc.drawImage(needle, Vor_Const.NDL_X, Vor_Const.NDL_Y);
 		       /* Draw Needle */
 		       //icfg.drawDeflectionLine(Disp, e, 0);
 		       

@@ -71,10 +71,7 @@ public interface Vor_Const {
 	static final int SPINNER_Y = 20;
 	
 	//Needle Constants
-	static final int NEEDLE_TOP_X = 184;
-	static final int NEEDLE_TOP_Y = 120;
-	static final int NEEDLE_BOTTOM_X = 184;
-	static final int NEEDLE_BOTTOM_Y = 228;
-	static final int NEEDLE_OFFSET = 14;
+	static final int NDL_X = 0;
+	static final int NDL_Y = -65;
 	
 }

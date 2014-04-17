@@ -63,10 +63,10 @@ public class Interface_Configurator {
 		Transform transform = new Transform(disp);		      
         transform = new Transform(disp);
         transform.translate(Vor_Const.OBS_COORD + rect.width/2, 
-        		(Vor_Const.OBS_COORD + rect.height/2));
+        		(Vor_Const.NDL_Y + rect.height/2));
         transform.rotate(-angle);
         transform.translate(-rect.width/2, -
-        		(Vor_Const.OBS_COORD +rect.height/2));
+        		(Vor_Const.NDL_Y +rect.height/2));
         return transform;
 	}
 	
@@ -76,38 +76,6 @@ public class Interface_Configurator {
 		Image vor_dots = images.get(Vor_Const.I_DOT);
 		e.gc.drawImage(red_pointer, Vor_Const.I_PTR_X, Vor_Const.I_PTR_Y);
 		e.gc.drawImage(vor_dots, Vor_Const.I_DOT_X, Vor_Const.I_DOT_Y);		
-	}
-	
-	public void drawDeflectionLine(Display disp, PaintEvent e, int deviation)
-	{
-		/* Configure Line */
-		Device device = disp.getCurrent();
-		Color white = new Color (device, Vor_Const.WHITE_R,
-				Vor_Const.WHITE_G,Vor_Const.WHITE_B);
-		e.gc.setForeground(white);
-		e.gc.setLineWidth(Vor_Const.NEEDLE_WIDTH);
-			
-//		int offset = 4;
-//		int Angle = offset*deviation;
-//		double Rad = Math.toRadians(Angle);
-//		
-//		System.out.println("angle: " + Angle);
-//		System.out.println("rad: " + Rad);
-//		
-//		/* Configure Line Ends */
-//		int Needle_X, Needle_Y;
-//		Needle_X = (int) (Vor_Const.NEEDLE_BOTTOM_X * Math.cos(Rad) +
-//				Vor_Const.NEEDLE_BOTTOM_Y * Math.sin(Rad));
-//		Needle_Y = (int) (-Vor_Const.NEEDLE_BOTTOM_X * Math.sin(Rad) +
-//				Vor_Const.NEEDLE_BOTTOM_Y * Math.cos(Rad));
-//		
-//		e.gc.drawLine(Vor_Const.NEEDLE_TOP_X, Vor_Const.NEEDLE_TOP_Y, 
-//				Needle_X, Needle_Y);
-		
-		e.gc.drawLine(Vor_Const.NEEDLE_TOP_X, Vor_Const.NEEDLE_TOP_Y, 
-				Vor_Const.NEEDLE_BOTTOM_X + deviation * 
-				Vor_Const.NEEDLE_OFFSET,
-				Vor_Const.NEEDLE_BOTTOM_Y);
 	}
 	
 	public Image getGBImage(List<Image> images, Radio rad)
