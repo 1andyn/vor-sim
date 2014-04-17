@@ -14,6 +14,7 @@ import org.eclipse.swt.graphics.Transform;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
@@ -84,12 +85,14 @@ public class Interface {
 		       e.gc.drawImage(icfg.getTFImage(imagelist, 0),
 		    		   Vor_Const.TF_X, Vor_Const.TF_Y);
 
-		       int x = 0;
+		       
+		       int disp = 5;
+		       int x = 7 * disp;
+		       
+		       /* Draw Needle */
 		       transform = icfg.getTransform(Disp, x, n_rect);
 		       e.gc.setTransform(transform);
 		       e.gc.drawImage(needle, Vor_Const.NDL_X, Vor_Const.NDL_Y);
-		       /* Draw Needle */
-		       //icfg.drawDeflectionLine(Disp, e, 0);
 		       
 		      }
 		    });
@@ -108,11 +111,21 @@ public class Interface {
 		OBSLabel.setText("OBS Knob Angle (Degrees): ");
 		OBSLabel.pack();
 		OBSLabel.setLocation(Vor_Const.LABEL_X,Vor_Const.LABEL_Y);
+		
+		final Label radioText = new Label(Simulator_Inputs, SWT.SINGLE);
+		radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());
+		radioText.pack();
+		radioText.setLocation(Vor_Const.LABEL_X,Vor_Const.button_TY);
 
 		final Spinner OBSAngle = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
 		icfg.SpinnerAngleConfig(OBSAngle);
 		OBSAngle.pack();
 		OBSAngle.setLocation(Vor_Const.SPINNER_X, Vor_Const.SPINNER_Y);
+		
+		final Button radioButton = new Button(Simulator_Inputs, SWT.PUSH);
+		radioButton.setText(Vor_Const.buttonTitle);
+		radioButton.setLocation(Vor_Const.button_X, Vor_Const.button_Y);
+		radioButton.pack();
 
 		Disp_Shell.pack();
 		Disp_Shell.open();
@@ -124,10 +137,16 @@ public class Interface {
 		        int value = (int) (selection / Math.pow(10, digits));
 		        vor_rad.setOBSAngle(value);
 		        cmp_cvs.redraw();
-		        vor_rad.debugAngle();
 		      }
 		    });
 		
+		radioButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+		    public void widgetSelected(SelectionEvent e) {
+		        vor_rad.generateRandomRadio();
+				radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());
+		    }
+		}); 
 		
 		while(!Disp_Shell.isDisposed()) {
 			if(!Disp.readAndDispatch()) {

@@ -3,9 +3,9 @@ package ics314;
 import java.util.Random;
 
 public class Radio {
-	private int USR_OBS_ANGLE;
-	private int GOOD_BAD;
 	private int OBS_ANGLE;
+	private int GOOD_BAD;
+	private int RADIO_ANGLE;
 
 	public Radio()
 	{
@@ -19,32 +19,32 @@ public class Radio {
 	
 	private void initRadio()
 	{
-		USR_OBS_ANGLE = Vor_Const.START_ANGLE;
+		OBS_ANGLE = Vor_Const.START_ANGLE;
 		generateRandomGoodBad();
-		generateRandomOBS();
+		generateRandomRadio();
 	}
 	
 	public void setOBSAngle(int angle)
 	{
-		USR_OBS_ANGLE = angle;
+		OBS_ANGLE = angle;
 	}
 	
-	public void generateRandomOBS()
+	public void generateRandomRadio()
 	{
 		Random rand = new Random();
 		int obs = rand.nextInt(360);
-		OBS_ANGLE = obs;
+		RADIO_ANGLE = obs;
 	}
 	
-	public int getOBS() 
+	public int getRadioAngle() 
 	{
-		int temp = OBS_ANGLE;
+		int temp = RADIO_ANGLE;
 		return temp;
 	}
 	
 	public int getOBSAngle()
 	{
-		int temp = USR_OBS_ANGLE;
+		int temp = OBS_ANGLE;
 		return temp;
 	}
 	
@@ -58,7 +58,7 @@ public class Radio {
 	//Debug
 	public void debugAngle()
 	{
-		System.out.println("OBS LOC ANGLE: " + OBS_ANGLE);
+		System.out.println("OBS LOC ANGLE: " + RADIO_ANGLE);
 	}
 	
 }

@@ -53,6 +53,12 @@ public interface Vor_Const {
 	static final int BG_PIXELS = 367;
 	static final int NEEDLE_WIDTH = 4;
 	
+	//Button consts
+	static final String buttonTitle = "New Radio";
+	static final int button_X = 132;
+	static final int button_Y = 45;
+	static final int button_TY = 50;
+	
 	//Math
 	static final float DEGREES_PER_PI = 180;
 	
