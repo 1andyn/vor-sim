@@ -27,12 +27,14 @@ public class Interface {
 	public static void main(String[] args) 
 	{
 		final Interface_Configurator icfg = new Interface_Configurator();
+		final Calculation calc = new Calculation();
 		final Radio vor_rad = new Radio();		
 		
 		//Initial Display Interface Variables
 		final Display Disp = new Display();
 		final Shell Disp_Shell = new Shell(Disp,SWT.SHELL_TRIM & ~ SWT.RESIZE);
 		Disp_Shell.setText("VOR Simulator");
+		int TO_FROM_INDICATOR = -1;
 		
 		//Resource Setup (For Images)
 		final List<Image> imagelist = new ArrayList<Image>();
@@ -81,16 +83,17 @@ public class Interface {
 		       e.gc.drawImage(icfg.getGBImage(imagelist, vor_rad),
 		    		   Vor_Const.GB_X, Vor_Const.GB_Y);
 		       
+		       int x = calc.calculateToFrom(vor_rad);
 		       /* Draw ToFrom */
-		       e.gc.drawImage(icfg.getTFImage(imagelist, 0),
+		       e.gc.drawImage(icfg.getTFImage(imagelist, x),
 		    		   Vor_Const.TF_X, Vor_Const.TF_Y);
-
+		       
 		       
 		       int disp = 5;
-		       int x = 7 * disp;
+		       int y = 7 * disp;
 		       
 		       /* Draw Needle */
-		       transform = icfg.getTransform(Disp, x, n_rect);
+		       transform = icfg.getTransform(Disp, y, n_rect);
 		       e.gc.setTransform(transform);
 		       e.gc.drawImage(needle, Vor_Const.NDL_X, Vor_Const.NDL_Y);
 		       
@@ -144,6 +147,7 @@ public class Interface {
 			@Override
 		    public void widgetSelected(SelectionEvent e) {
 		        vor_rad.generateRandomRadio();
+		        cmp_cvs.redraw();
 				radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());
 		    }
 		}); 

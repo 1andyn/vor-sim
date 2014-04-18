@@ -41,6 +41,8 @@ public class Interface_Configurator {
 		images.add(icon);
 		Image needle = new Image(disp,"rsrc/needle.png"); //8
 		images.add(needle);
+		Image cent = new Image(disp,"rsrc/cent.png"); //9
+		images.add(cent);
 	}
 	
 	//Function for Rotating OBS
@@ -92,7 +94,7 @@ public class Interface_Configurator {
         switch(tofrom){
         case Vor_Const.TO: return images.get(Vor_Const.I_TO);
         case Vor_Const.FROM: return images.get(Vor_Const.I_FROM);
-        default: return images.get(Vor_Const.I_FROM);
+        default: return images.get(Vor_Const.I_CENT);
         }
 	}
 	

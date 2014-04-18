@@ -24,9 +24,12 @@ public class CalculationTest {
 		Calculation test = new Calculation();
 		Radio vor = new Radio();
 		int interceptedradial = vor.getRadioAngle();
-		int course = vor.getOBSAngle();
-		int result = interceptedradial - course;
-		assertEquals("Radial Difference", result,test.calculateDeflection(vor));
+		for(int x = 0; x < 359; x++) {
+			vor.setOBSAngle(x);
+			int course = vor.getOBSAngle();
+			int result = interceptedradial - course;
+			assertEquals("Radial Difference", result,test.calculateDeflection(vor));
+		}
 	}
 	
 	@Test

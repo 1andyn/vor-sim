@@ -12,6 +12,7 @@ public interface Vor_Const {
 	static final int I_DOT = 6;
 	static final int I_ICON = 7;
 	static final int I_NDLE = 8;
+	static final int I_CENT = 9;
 	
 	//Inversion
 	static final int INVERT = -1;
@@ -29,6 +30,7 @@ public interface Vor_Const {
 	//Direction Constants
 	static final int FROM = 1;
 	static final int TO = 0;
+	static final int OFF = -1;
 	
 	//Angle Rotation Amounts
 	static final int PERPENDICULAR = 90;

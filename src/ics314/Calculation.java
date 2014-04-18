@@ -28,8 +28,19 @@ public class Calculation {
 	
 	public int calculateToFrom(Radio vor)
 	{
-		return 0;
-	}
+		int interceptedRadial = vor.getRadioAngle();
+		int Course = vor.getOBSAngle();
+        if(interceptedRadial<((Course+Vor_Const.HALF_PI)%Vor_Const.TWO_PI) 
+        		&& interceptedRadial>((Course-Vor_Const.HALF_PI)%Vor_Const.TWO_PI)) {
+            return Vor_Const.TO;
+        } else if (interceptedRadial==((Course+Vor_Const.HALF_PI)%Vor_Const.TWO_PI) 
+        		|| interceptedRadial==((Course-Vor_Const.HALF_PI)%Vor_Const.TWO_PI)) {
+            return Vor_Const.OFF;
+        } else {
+           return Vor_Const.FROM;
+        }
+    }
+
 	
 	public int updateDeflection()
 	{
