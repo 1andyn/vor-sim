@@ -145,6 +145,7 @@ public class Interface {
 			@Override
 		    public void widgetSelected(SelectionEvent e) {
 		        vor_rad.generateRandomRadio();
+		        vor_rad.generateRandomGoodBad();
 		        cmp_cvs.redraw();
 				radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());
 		    }
