@@ -39,7 +39,7 @@ public class CalculationTest {
 		} else {
 			int interceptedRadial = vor.getRadioAngle();
 			int course = vor.getOBSAngle();
-			if(((interceptedRadial-course)% Vor_Const.PERPENDICULAR) == 0) {
+			if(((interceptedRadial-course)%Vor_Const.PERPENDICULAR) == 0) {
 				assertEquals("test should return BAD", result, Vor_Const.BAD);
 			} else {
 				assertEquals("test should return GOOD", result, Vor_Const.GOOD);

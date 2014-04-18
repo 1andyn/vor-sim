@@ -2,6 +2,10 @@ package ics314;
 
 public interface Vor_Const {
 	
+	//Calculation Consts
+	static final int ABEAM = 1;
+	static final int NOT_ABEAM = 0;
+	
 	//Image Resource Constants
 	static final int I_OBS = 0;
 	static final int I_PTR = 1;
