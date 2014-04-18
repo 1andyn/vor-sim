@@ -20,6 +20,16 @@ public class CalculationTest {
 	}
 
 	@Test
+	public void testDeflect(){
+		Calculation test = new Calculation();
+		Radio vor = new Radio();
+		int interceptedradial = vor.getRadioAngle();
+		int course = vor.getOBSAngle();
+		int result = interceptedradial - course;
+		assertEquals("Radial Difference", result,test.calculateDeflection(vor));
+	}
+	
+	@Test
 	public void testGoodBad() {
 		Calculation test = new Calculation();
 		Radio vor = new Radio();
@@ -39,6 +49,9 @@ public class CalculationTest {
 	
 	@Test
 	public void testToFromResult() {
+		Calculation test = new Calculation();
+		Radio vor = new Radio();
+		int result = test.calculateToFrom(vor);
 		
 	}
 

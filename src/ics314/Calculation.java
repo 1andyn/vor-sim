@@ -2,33 +2,32 @@ package ics314;
 
 public class Calculation {
 	
-	private int TOFROM;
-	private int OBS_ANGLE;
-	private int RADIO_DEFLECTION;
-	
 	public Calculation()
 	{
-		init_Calc();
+		//Constructor
 	}
 	
-	private void init_Calc()
+	public int calculateBad(Radio vor)
 	{
-		RADIO_DEFLECTION = 0;
+		/* First Case is when VOR says BAD (too close)*/
+		if(vor.getGoodBad() == Vor_Const.BAD) {
+			return Vor_Const.BAD;
+		}
 	}
 	
-	int calculateBad(Radio vor)
-	{
-		return 0;
-	}
-	
-	int calculateToFrom(Radio vor)
+	public int calculateToFrom(Radio vor)
 	{
 		return 0;
 	}
 	
-	int updateDeflection()
+	public int updateDeflection()
 	{
 		return 0;
+	}
+	
+	public int calculateDeflection(Radio vor)
+	{
+		return (vor.getRadioAngle() - vor.getOBSAngle());
 	}
 	
 }
