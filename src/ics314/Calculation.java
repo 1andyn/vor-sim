@@ -20,9 +20,9 @@ public class Calculation {
 	private int checkAbeam(int intercept, int course)
 	{
 		if((intercept-course)%Vor_Const.PERPENDICULAR == 0) {
-			return Vor_Const.ABEAM;
+			return Vor_Const.BAD;
 		} else {
-			return Vor_Const.NOT_ABEAM;
+			return Vor_Const.GOOD;
 		}
 	}
 	

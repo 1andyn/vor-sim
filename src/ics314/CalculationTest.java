@@ -33,16 +33,19 @@ public class CalculationTest {
 	public void testGoodBad() {
 		Calculation test = new Calculation();
 		Radio vor = new Radio();
-		int result = test.calculateBad(vor);
-		if(vor.getGoodBad() == Vor_Const.BAD) {
-			assertEquals("test should return BAD", result, Vor_Const.BAD);
-		} else {
+		for(int x = 0; x < 359; x++) {
+			vor.setOBSAngle(x);
 			int interceptedRadial = vor.getRadioAngle();
 			int course = vor.getOBSAngle();
-			if(((interceptedRadial-course)%Vor_Const.PERPENDICULAR) == 0) {
+			int result = test.calculateBad(vor);
+			if(vor.getGoodBad() == Vor_Const.BAD) {
 				assertEquals("test should return BAD", result, Vor_Const.BAD);
 			} else {
-				assertEquals("test should return GOOD", result, Vor_Const.GOOD);
+				if(((interceptedRadial-course)%Vor_Const.PERPENDICULAR) == 0) {
+					assertEquals("test should return BAD", result, Vor_Const.BAD);
+				} else {
+					assertEquals("test should return GOOD", result, Vor_Const.GOOD);
+				}
 			}
 		}
 	}
