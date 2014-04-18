@@ -88,9 +88,7 @@ public class Interface {
 		       e.gc.drawImage(icfg.getTFImage(imagelist, x),
 		    		   Vor_Const.TF_X, Vor_Const.TF_Y);
 		       
-		       
-		       int disp = 5;
-		       int y = 7 * disp;
+		       int y = calc.calculateDeflection(vor_rad);
 		       
 		       /* Draw Needle */
 		       transform = icfg.getTransform(Disp, y, n_rect);

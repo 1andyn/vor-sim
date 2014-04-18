@@ -61,12 +61,23 @@ public class Interface_Configurator {
 	
 	public Transform getTransform(Display disp, int angle, 
 			Rectangle rect)
-	{
+	{	
+		float true_angle;
+		if(Math.abs(angle) > Vor_Const.DEF_MAX) {
+			if(angle > 0) {
+				true_angle = Vor_Const.DEF_MAX_ANGLE;
+			} else {
+				true_angle = -Vor_Const.DEF_MAX_ANGLE;
+			}
+		} else {
+			true_angle = angle * Vor_Const.ROTATE_OFFSET;;
+		}
+		
 		Transform transform = new Transform(disp);		      
         transform = new Transform(disp);
         transform.translate(Vor_Const.OBS_COORD + rect.width/2, 
         		(Vor_Const.NDL_Y + rect.height/2));
-        transform.rotate(-angle);
+        transform.rotate(-true_angle);
         transform.translate(-rect.width/2, -
         		(Vor_Const.NDL_Y +rect.height/2));
         return transform;

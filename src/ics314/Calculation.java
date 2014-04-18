@@ -41,12 +41,6 @@ public class Calculation {
         }
     }
 
-	
-	public int updateDeflection()
-	{
-		return 0;
-	}
-	
 	public int calculateDeflection(Radio vor)
 	{
 		return (vor.getRadioAngle() - vor.getOBSAngle());

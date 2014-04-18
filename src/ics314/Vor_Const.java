@@ -82,5 +82,8 @@ public interface Vor_Const {
 	//Needle Constants
 	static final int NDL_X = 0;
 	static final int NDL_Y = -65;
+	static final int DEF_MAX = 10;
+	static final int DEF_MAX_ANGLE = 40;
+	static final float ROTATE_OFFSET = 3.5f;
 	
 }
