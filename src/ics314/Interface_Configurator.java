@@ -91,9 +91,9 @@ public class Interface_Configurator {
 		e.gc.drawImage(vor_dots, Vor_Const.I_DOT_X, Vor_Const.I_DOT_Y);		
 	}
 	
-	public Image getGBImage(List<Image> images, Radio rad)
+	public Image getGBImage(List<Image> images, int input)
 	{
-        switch(rad.getGoodBad()) {
+        switch(input) {
         case Vor_Const.BAD: return images.get(Vor_Const.I_BAD);
         case Vor_Const.GOOD: return images.get(Vor_Const.I_GOOD);
         default: return images.get(Vor_Const.I_GOOD);

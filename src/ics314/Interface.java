@@ -79,8 +79,9 @@ public class Interface {
 		        /* Static Draws */
 		       icfg.drawStaticResources(e, imagelist);
 		       
+		       int z = calc.calculateBad(vor_rad);
 		       /* Draw GoodBad */
-		       e.gc.drawImage(icfg.getGBImage(imagelist, vor_rad),
+		       e.gc.drawImage(icfg.getGBImage(imagelist, z),
 		    		   Vor_Const.GB_X, Vor_Const.GB_Y);
 		       
 		       int x = calc.calculateToFrom(vor_rad);
