@@ -119,7 +119,7 @@ public class Interface {
 		radioText.pack();
 		radioText.setLocation(Vor_Const.LABEL_X,Vor_Const.button_TY);
 
-		final Spinner OBSAngle = new Spinner(Simulator_Inputs, SWT.READ_ONLY);
+		final Spinner OBSAngle = new Spinner(Simulator_Inputs, SWT.WRAP);
 		icfg.SpinnerAngleConfig(OBSAngle);
 		OBSAngle.pack();
 		OBSAngle.setLocation(Vor_Const.SPINNER_X, Vor_Const.SPINNER_Y);
