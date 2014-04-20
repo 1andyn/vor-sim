@@ -64,22 +64,28 @@ public class Interface_Configurator {
 	{	/* Rotating by Negative angle turns needle to RIGHT */
 		/* Rotating by Postive angle turns needle to LEFT */
 		
-		int angle;
-		if (deflection >= Vor_Const.PI) {
-			angle = -(deflection)%Vor_Const.PI;
-			System.out.println("CASE 1");
-		}
-		else if (deflection >= Vor_Const.PI - Vor_Const.DEFLECTION_OFFSET) {
-			angle = Vor_Const.PI - deflection%Vor_Const.PI;
-			System.out.println("CASE 2");
-		} else {
-			angle = deflection;
-			System.out.println("CASE 3");
+		//int angle = deflection % Vor_Const.PI;
+		
+		int new_deflection = deflection;
+		if(deflection > Vor_Const.PI) {
+			new_deflection = -(Vor_Const.TWO_PI - deflection);
+		} else if (deflection < -Vor_Const.PI) {
+			new_deflection = (Vor_Const.TWO_PI + deflection);
 		}
 		
-		System.out.println(angle);
-
+		new_deflection = new_deflection % Vor_Const.PI;
+		if(new_deflection > Vor_Const.PI - Vor_Const.DEFLECTION_OFFSET) {
+			new_deflection = Vor_Const.PI - new_deflection;
+		} else if (new_deflection < (-Vor_Const.PI) + Vor_Const.DEFLECTION_OFFSET) {
+			new_deflection = -(Vor_Const.PI + new_deflection);
+		}
+		
 		float needle_angle;
+		int angle = new_deflection;
+		System.out.println("D: " + deflection);
+		System.out.println("A: " + angle);
+
+
 		if(Math.abs(angle) > Vor_Const.DEF_MAX) {
 			if(angle > 0) {
 				needle_angle = Vor_Const.DEF_MAX_ANGLE;
@@ -87,7 +93,7 @@ public class Interface_Configurator {
 				needle_angle = -Vor_Const.DEF_MAX_ANGLE;
 			}
 		} else {
-			needle_angle = angle * Vor_Const.ROTATE_OFFSET;;
+			needle_angle = angle * Vor_Const.ROTATE_OFFSET;
 		}
 		
 		Transform transform = new Transform(disp);		      
