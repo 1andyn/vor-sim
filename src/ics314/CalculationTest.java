@@ -33,6 +33,7 @@ public class CalculationTest {
 	}
 	
 	@Test
+	/* This should use PARAMETERIZED TESTS instead */
 	public void testGoodBad() {
 		Calculation test = new Calculation();
 		Radio vor = new Radio();

@@ -59,27 +59,42 @@ public class Interface_Configurator {
         return transform;
 	}
 	
-	public Transform getTransform(Display disp, int angle, 
+	public Transform getTransform(Display disp, int deflection, 
 			Rectangle rect)
 	{	/* Rotating by Negative angle turns needle to RIGHT */
 		/* Rotating by Postive angle turns needle to LEFT */
 		
-		float true_angle;
+		int angle;
+		if (deflection >= Vor_Const.PI) {
+			angle = -(deflection)%Vor_Const.PI;
+			System.out.println("CASE 1");
+		}
+		else if (deflection >= Vor_Const.PI - Vor_Const.DEFLECTION_OFFSET) {
+			angle = Vor_Const.PI - deflection%Vor_Const.PI;
+			System.out.println("CASE 2");
+		} else {
+			angle = deflection;
+			System.out.println("CASE 3");
+		}
+		
+		System.out.println(angle);
+
+		float needle_angle;
 		if(Math.abs(angle) > Vor_Const.DEF_MAX) {
 			if(angle > 0) {
-				true_angle = Vor_Const.DEF_MAX_ANGLE;
+				needle_angle = Vor_Const.DEF_MAX_ANGLE;
 			} else {
-				true_angle = -Vor_Const.DEF_MAX_ANGLE;
+				needle_angle = -Vor_Const.DEF_MAX_ANGLE;
 			}
 		} else {
-			true_angle = angle * Vor_Const.ROTATE_OFFSET;;
+			needle_angle = angle * Vor_Const.ROTATE_OFFSET;;
 		}
 		
 		Transform transform = new Transform(disp);		      
         transform = new Transform(disp);
         transform.translate(Vor_Const.OBS_COORD + rect.width/2, 
         		(Vor_Const.NDL_Y + rect.height/2));
-        transform.rotate(true_angle);
+        transform.rotate(needle_angle);
         transform.translate(-rect.width/2, -
         		(Vor_Const.NDL_Y +rect.height/2));
         return transform;

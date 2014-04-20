@@ -20,8 +20,7 @@ public interface Vor_Const {
 	//Color
 	static final int WHITE_R = 255;
 	static final int WHITE_G = 255;
-	static final int WHITE_B = 255;
-	
+	static final int WHITE_B = 255;	
 	
 	//GOOD BAD
 	static final int BAD = 0;
@@ -32,12 +31,13 @@ public interface Vor_Const {
 	static final int TO = 0;
 	static final int OFF = -1;
 	
-	//Angle Rotation Amounts
+	// Math Constants
 	static final int PERPENDICULAR = 90;
 	static final int HALF_PI = 90;
 	static final int PI = 180;
 	static final int THREE_FORTH_PI = 270;
 	static final int TWO_PI = 360;
+	static final float DEGREES_PER_PI = 180;
 	
 	//Widget Constants
 	static final int OBS_COORD = 0;
@@ -62,9 +62,6 @@ public interface Vor_Const {
 	static final int button_Y = 45;
 	static final int button_TY = 50;
 	
-	//Math
-	static final float DEGREES_PER_PI = 180;
-	
 	//Fixed Coordinates
 	static final int I_PTR_X = 177;
 	static final int I_PTR_Y = 92;
@@ -85,5 +82,6 @@ public interface Vor_Const {
 	static final int DEF_MAX = 10;
 	static final int DEF_MAX_ANGLE = 40;
 	static final float ROTATE_OFFSET = 3.5f;
+	static final int DEFLECTION_OFFSET = 11;
 	
 }

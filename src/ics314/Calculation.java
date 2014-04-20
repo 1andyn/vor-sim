@@ -43,11 +43,8 @@ public class Calculation {
 
 	public int calculateDeflection(Radio vor)
 	{
-		if(vor.getOBSAngle() < (vor.getRadioAngle() + Vor_Const.PI - 11)) {
-			return (vor.getRadioAngle() - vor.getOBSAngle());
-		} else {
-			return (vor.getOBSAngle()%Vor_Const.PI - vor.getRadioAngle());
-		}
+		return (vor.getRadioAngle() - vor.getOBSAngle());
+
 	}
 	
 }

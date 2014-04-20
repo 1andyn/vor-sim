@@ -55,10 +55,10 @@ public class Radio {
 		GOOD_BAD = gb;
 	}
 	
-	//Debug
-	public void debugAngle()
+	//Debug + Testing
+	public void setRadioAngle(int angle)
 	{
-		System.out.println("OBS LOC ANGLE: " + RADIO_ANGLE);
+		RADIO_ANGLE = angle;
 	}
 	
 }
