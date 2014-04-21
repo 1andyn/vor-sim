@@ -65,7 +65,6 @@ public class Interface_Configurator {
 		/* Rotating by Postive angle turns needle to LEFT */
 		
 		//int angle = deflection % Vor_Const.PI;
-		
 		int new_deflection = deflection;
 		if(deflection > Vor_Const.PI) {
 			new_deflection = -(Vor_Const.TWO_PI - deflection);
@@ -122,7 +121,6 @@ public class Interface_Configurator {
 	
 	public Image getTFImage(List<Image> images, int tofrom)
 	{
-		System.out.println("Data is " + tofrom);
         switch(tofrom){
         case Vor_Const.TO: return images.get(Vor_Const.I_TO);
         case Vor_Const.FROM: return images.get(Vor_Const.I_FROM);

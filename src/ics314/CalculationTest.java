@@ -61,27 +61,43 @@ public class CalculationTest {
 		vor.setOBSAngle(0);
 		vor.setRadioAngle(20);
 		int result = test.calculateToFrom(vor);
-		assertEquals("test should be FROM", result, Vor_Const.FROM);
-		
+		assertEquals("EXPECTING FROM #1", result, Vor_Const.FROM);
 		vor.setOBSAngle(80);
 		result = test.calculateToFrom(vor);
-		assertEquals("test should be FROM", result, Vor_Const.FROM);
-		
+		assertEquals("EXPECTING FROM #2", result, Vor_Const.FROM);
 		vor.setOBSAngle(110);
 		result = test.calculateToFrom(vor);
-		assertEquals("test should be OFF", result, Vor_Const.OFF);
-
+		assertEquals("EXPECTING OFF #3", result, Vor_Const.OFF);
 		vor.setOBSAngle(130);
 		result = test.calculateToFrom(vor);
-		assertEquals("test should be TO", result, Vor_Const.TO);
-
+		assertEquals("EXPECTING TO #4", result, Vor_Const.TO);
 		vor.setOBSAngle(290);
 		result = test.calculateToFrom(vor);
-		assertEquals("test should be TO", result, Vor_Const.OFF);
-		
+		assertEquals("EXPECTING OFF #5", result, Vor_Const.OFF);
 		vor.setOBSAngle(310);
 		result = test.calculateToFrom(vor);
-		assertEquals("test should be TO", result, Vor_Const.FROM);
+		assertEquals("EXPECTING FROM #6", result, Vor_Const.FROM);
+		
+		vor.setRadioAngle(100);
+		vor.setOBSAngle(0);
+		result = test.calculateToFrom(vor);
+		assertEquals("EXPECTING TO #7", result, Vor_Const.TO);
+		vor.setOBSAngle(80);
+		result = test.calculateToFrom(vor);
+		assertEquals("EXPECTING FROM #8", result, Vor_Const.FROM);
+		vor.setOBSAngle(110);
+		result = test.calculateToFrom(vor);
+		assertEquals("EXPECTING FROM #9", result, Vor_Const.FROM);
+		vor.setOBSAngle(130);
+		result = test.calculateToFrom(vor);
+		assertEquals("EXPECTING FROM #10", result, Vor_Const.FROM);
+		vor.setOBSAngle(290);
+		result = test.calculateToFrom(vor);
+		assertEquals("EXPECTING TO #11", result, Vor_Const.TO);
+		vor.setOBSAngle(310);
+		result = test.calculateToFrom(vor);
+		assertEquals("EXPECTING TO #12", result, Vor_Const.TO);
+		
 		
 	}
 

@@ -38,14 +38,12 @@ public class Radio {
 	
 	public int getRadioAngle() 
 	{
-		int temp = RADIO_ANGLE;
-		return temp;
+		return RADIO_ANGLE;
 	}
 	
 	public int getOBSAngle()
 	{
-		int temp = OBS_ANGLE;
-		return temp;
+		return OBS_ANGLE;
 	}
 	
 	public void generateRandomGoodBad()

@@ -147,8 +147,8 @@ public class Interface {
 		    public void widgetSelected(SelectionEvent e) {
 		        vor_rad.generateRandomRadio();
 		        vor_rad.generateRandomGoodBad();
+		        radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());
 		        cmp_cvs.redraw();
-				radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());
 		    }
 		}); 
 		
