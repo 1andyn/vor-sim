@@ -34,8 +34,7 @@ public class Interface {
 		final Display Disp = new Display();
 		final Shell Disp_Shell = new Shell(Disp,SWT.SHELL_TRIM & ~ SWT.RESIZE);
 		Disp_Shell.setText("VOR Simulator");
-		int TO_FROM_INDICATOR = -1;
-		
+
 		//Resource Setup (For Images)
 		final List<Image> imagelist = new ArrayList<Image>();
 		icfg.LoadImages(Disp, imagelist);
