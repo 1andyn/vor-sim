@@ -58,7 +58,30 @@ public class CalculationTest {
 	public void testToFromResult() {
 		Calculation test = new Calculation();
 		Radio vor = new Radio();
+		vor.setOBSAngle(0);
+		vor.setRadioAngle(20);
 		int result = test.calculateToFrom(vor);
+		assertEquals("test should be FROM", result, Vor_Const.FROM);
+		
+		vor.setOBSAngle(80);
+		result = test.calculateToFrom(vor);
+		assertEquals("test should be FROM", result, Vor_Const.FROM);
+		
+		vor.setOBSAngle(110);
+		result = test.calculateToFrom(vor);
+		assertEquals("test should be OFF", result, Vor_Const.OFF);
+
+		vor.setOBSAngle(130);
+		result = test.calculateToFrom(vor);
+		assertEquals("test should be TO", result, Vor_Const.TO);
+
+		vor.setOBSAngle(290);
+		result = test.calculateToFrom(vor);
+		assertEquals("test should be TO", result, Vor_Const.OFF);
+		
+		vor.setOBSAngle(310);
+		result = test.calculateToFrom(vor);
+		assertEquals("test should be TO", result, Vor_Const.FROM);
 		
 	}
 

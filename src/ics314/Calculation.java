@@ -30,8 +30,18 @@ public class Calculation {
 	{
 		int interceptedRadial = vor.getRadioAngle();
 		int Course = vor.getOBSAngle();
-        if(interceptedRadial<((Course+Vor_Const.HALF_PI)%Vor_Const.TWO_PI) 
-        		&& interceptedRadial>((Course-Vor_Const.HALF_PI)%Vor_Const.TWO_PI)) {
+		System.out.println("C: " + Course + " - i: " + interceptedRadial);
+		int firstangle = ((Course+Vor_Const.HALF_PI)%Vor_Const.TWO_PI);
+		System.out.println("Fir Angle: " + firstangle);
+		int secondangle = ((Course-Vor_Const.HALF_PI)%Vor_Const.TWO_PI);
+		if(secondangle < 0) {
+			/* If Negative, Wrap Around */
+			secondangle = secondangle + Vor_Const.TWO_PI;
+		}
+		
+		System.out.println("Sec Angle: " + secondangle);
+        if(interceptedRadial < ((Course+Vor_Const.HALF_PI)%Vor_Const.TWO_PI) 
+        		&& interceptedRadial > secondangle) {
             return Vor_Const.TO;
         } else if (interceptedRadial==((Course+Vor_Const.HALF_PI)%Vor_Const.TWO_PI) 
         		|| interceptedRadial==((Course-Vor_Const.HALF_PI)%Vor_Const.TWO_PI)) {

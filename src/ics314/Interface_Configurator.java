@@ -82,9 +82,6 @@ public class Interface_Configurator {
 		
 		float needle_angle;
 		int angle = new_deflection;
-		System.out.println("D: " + deflection);
-		System.out.println("A: " + angle);
-
 
 		if(Math.abs(angle) > Vor_Const.DEF_MAX) {
 			if(angle > 0) {
@@ -125,6 +122,7 @@ public class Interface_Configurator {
 	
 	public Image getTFImage(List<Image> images, int tofrom)
 	{
+		System.out.println("Data is " + tofrom);
         switch(tofrom){
         case Vor_Const.TO: return images.get(Vor_Const.I_TO);
         case Vor_Const.FROM: return images.get(Vor_Const.I_FROM);

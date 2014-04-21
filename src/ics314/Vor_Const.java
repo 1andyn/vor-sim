@@ -58,7 +58,7 @@ public interface Vor_Const {
 	
 	//Button consts
 	static final String buttonTitle = "New Radio";
-	static final int button_X = 132;
+	static final int button_X = 133;
 	static final int button_Y = 45;
 	static final int button_TY = 50;
 	
