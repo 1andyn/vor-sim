@@ -44,7 +44,6 @@ public class Calculation {
 		badangles[5] = normNegAngle(abeam_b - Vor_Const.ABEAM_OFFSET);
 
 		for(int x = 0; x < 6; x++) {
-			System.out.println(x + " " + badangles[x]);
 			if(badangles[x] == icp) {
 				return Vor_Const.BAD;
 			}
@@ -61,15 +60,11 @@ public class Calculation {
 		int firstangle = (Course + Vor_Const.HALF_PI)%Vor_Const.TWO_PI;
 		
 		/* Greater than angle */
-		int secondangle = ((Course-Vor_Const.HALF_PI)%Vor_Const.TWO_PI);
-		if(secondangle < 0) {
-			/* If Negative, Wrap Around */
-			secondangle = secondangle + Vor_Const.TWO_PI;
-		}
+		int secondangle = normNegAngle(Course-Vor_Const.HALF_PI);
 		
 		if(firstangle < secondangle) {
 			if (interceptedRadial==((Course+Vor_Const.HALF_PI)%Vor_Const.TWO_PI) 
-            		|| interceptedRadial==((Course-Vor_Const.HALF_PI)%Vor_Const.TWO_PI)) {
+            		|| interceptedRadial==(normNegAngle(Course-Vor_Const.HALF_PI))) {
             	return Vor_Const.OFF;
 			}
 			else if(interceptedRadial < secondangle && interceptedRadial > firstangle){
@@ -79,7 +74,7 @@ public class Calculation {
             }
 		} else {
 			if (interceptedRadial==((Course+Vor_Const.HALF_PI)%Vor_Const.TWO_PI) 
-	        		|| interceptedRadial==((Course-Vor_Const.HALF_PI)%Vor_Const.TWO_PI)) {
+	        		|| interceptedRadial==(normNegAngle(Course-Vor_Const.HALF_PI))) {
 	        	return Vor_Const.OFF;
 			} else if(interceptedRadial > secondangle && interceptedRadial < firstangle) {
 				return Vor_Const.FROM;
