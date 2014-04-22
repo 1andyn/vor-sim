@@ -75,6 +75,7 @@ public interface Vor_Const {
 	static final int LABEL_Y = 20;
 	static final int SPINNER_X = 160;
 	static final int SPINNER_Y = 20;
+	static final int ABEAM_OFFSET = 1;
 	
 	//Needle Constants
 	static final int NDL_X = 0;
