@@ -54,7 +54,7 @@ public class Radio {
 		GOOD_BAD = gb;
 	}
 	
-	public String generateMorseCode(ArrayList<String> morse)
+	public String generateID(ArrayList<String> morse)
 	{
 		Random rand = new Random();
 		int randNum = rand.nextInt(26);

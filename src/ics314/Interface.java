@@ -133,7 +133,21 @@ public class Interface {
 		radioButton.setLocation(Vor_Const.button_X, Vor_Const.button_Y);
 		radioButton.pack();
 
-
+		final Group Station_ID = new Group(Disp_Shell, 0);
+		Station_ID.setText("Station Identification");
+		G_Data = new GridData(GridData.FILL, GridData.FILL, true, false);
+		G_Data.horizontalSpan = Vor_Const.SUB_COL_COUNT;
+		G_Data.heightHint = 60;
+		Station_ID.setLayoutData(G_Data);
+		
+		final Label morseCode = new Label(Station_ID, SWT.SINGLE);
+		morseCode.setText("                    ");
+		morseCode.pack();
+		morseCode.setText(vor_rad.generateID(alphaArray) + "  " +
+				vor_rad.generateID(alphaArray) + "  " +
+				vor_rad.generateID(alphaArray));
+		morseCode.setLocation(Vor_Const.LABEL_X,Vor_Const.button_TY);
+		
 		Disp_Shell.pack();
 		Disp_Shell.open();
 		
