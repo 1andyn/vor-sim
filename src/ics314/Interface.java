@@ -166,7 +166,10 @@ public class Interface {
 		    public void widgetSelected(SelectionEvent e) {
 		        vor_rad.generateRandomRadio();
 		        vor_rad.generateRandomGoodBad();
-		        radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());		    
+		        radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());	
+		        morseCode.setText(vor_rad.generateID(alphaArray) + "  " +
+						vor_rad.generateID(alphaArray) + "  " +
+						vor_rad.generateID(alphaArray));
 		        cmp_cvs.redraw();
 		    }
 		}); 
