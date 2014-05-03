@@ -133,6 +133,7 @@ public class Interface {
 		radioButton.setLocation(Vor_Const.button_X, Vor_Const.button_Y);
 		radioButton.pack();
 
+
 		Disp_Shell.pack();
 		Disp_Shell.open();
 		

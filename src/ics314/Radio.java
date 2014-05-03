@@ -1,5 +1,6 @@
 package ics314;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Radio {
@@ -51,6 +52,13 @@ public class Radio {
 		Random rand = new Random();
 		int gb = rand.nextInt(2);
 		GOOD_BAD = gb;
+	}
+	
+	public String generateMorseCode(ArrayList<String> morse)
+	{
+		Random rand = new Random();
+		int randNum = rand.nextInt(26);
+		return morse.get(randNum);
 	}
 	
 	//---------Debug + Testing
