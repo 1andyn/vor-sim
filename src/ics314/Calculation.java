@@ -28,8 +28,8 @@ public class Calculation {
 	private int checkAbeam(int crs, int icp)
 	{
 		int abeam_a, abeam_b;
-		abeam_a = (crs+Vor_Const.HALF_PI)%Vor_Const.TWO_PI;
-		abeam_b = crs-Vor_Const.HALF_PI;
+		abeam_a = (icp+Vor_Const.HALF_PI)%Vor_Const.TWO_PI;
+		abeam_b = icp-Vor_Const.HALF_PI;
 		
 		abeam_b = normNegAngle(abeam_b);
 		
@@ -42,7 +42,7 @@ public class Calculation {
 		badangles[3] = (abeam_b + Vor_Const.ABEAM_OFFSET)%Vor_Const.TWO_PI;
 		badangles[4] = normNegAngle(abeam_a - Vor_Const.ABEAM_OFFSET);
 		badangles[5] = normNegAngle(abeam_b - Vor_Const.ABEAM_OFFSET);
-
+		
 		for(int x = 0; x < 6; x++) {
 			if(badangles[x] == icp) {
 				return Vor_Const.BAD;
