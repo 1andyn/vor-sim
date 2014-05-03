@@ -53,10 +53,15 @@ public class Radio {
 		GOOD_BAD = gb;
 	}
 	
-	//Debug + Testing
+	//---------Debug + Testing
 	public void setRadioAngle(int angle)
 	{
 		RADIO_ANGLE = angle;
+	}
+	
+	public void setGoodBad(int g_b)
+	{
+		GOOD_BAD = g_b;
 	}
 	
 }

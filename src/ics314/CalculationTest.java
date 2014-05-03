@@ -45,46 +45,136 @@ public class CalculationTest {
 		Calculation test = new Calculation();
 		Radio vor = new Radio();
 		vor.setOBSAngle(0);
-		vor.setRadioAngle(20);
+		vor.setRadioAngle(0);
+
+		/* Testings Plane at 0 == 360 */
 		int result = test.calculateToFrom(vor);
-		assertEquals("EXPECTING FROM #1", result, Vor_Const.FROM);
-		vor.setOBSAngle(80);
+		assertEquals("0:0 - Expect FROM", result, Vor_Const.FROM);
+		vor.setOBSAngle(89);
 		result = test.calculateToFrom(vor);
-		assertEquals("EXPECTING FROM #2", result, Vor_Const.FROM);
-		vor.setOBSAngle(110);
+		assertEquals("0:89 - Expect FROM", result, Vor_Const.FROM);
+		vor.setOBSAngle(90);
 		result = test.calculateToFrom(vor);
-		assertEquals("EXPECTING OFF #3", result, Vor_Const.OFF);
-		vor.setOBSAngle(130);
+		assertEquals("0:90 - Expect OFF", result, Vor_Const.OFF);
+		vor.setOBSAngle(91);
 		result = test.calculateToFrom(vor);
-		assertEquals("EXPECTING TO #4", result, Vor_Const.TO);
-		vor.setOBSAngle(290);
-		result = test.calculateToFrom(vor);
-		assertEquals("EXPECTING OFF #5", result, Vor_Const.OFF);
-		vor.setOBSAngle(310);
-		result = test.calculateToFrom(vor);
-		assertEquals("EXPECTING FROM #6", result, Vor_Const.FROM);
+		assertEquals("0:91 - Expect TO", result, Vor_Const.TO);
 		
-		vor.setRadioAngle(100);
+	
+		vor.setOBSAngle(269);
+		result = test.calculateToFrom(vor);
+		assertEquals("0:269 - Expect TO", result, Vor_Const.TO);
+		vor.setOBSAngle(270);
+		result = test.calculateToFrom(vor);
+		assertEquals("0:270 - Expect OFF", result, Vor_Const.OFF);
+		vor.setOBSAngle(271);
+		result = test.calculateToFrom(vor);
+		assertEquals("0:271 - Expect FROM", result, Vor_Const.FROM);
+		
+		/* Testings Plane at 90 */	
+		vor.setRadioAngle(90);
+		vor.setOBSAngle(359);
+		result = test.calculateToFrom(vor);
+		assertEquals("90:359 - Expect TO", result, Vor_Const.TO);
 		vor.setOBSAngle(0);
 		result = test.calculateToFrom(vor);
-		assertEquals("EXPECTING TO #7", result, Vor_Const.TO);
-		vor.setOBSAngle(80);
+		assertEquals("90:0 - Expect OFF", result, Vor_Const.OFF);
+		vor.setOBSAngle(1);
 		result = test.calculateToFrom(vor);
-		assertEquals("EXPECTING FROM #8", result, Vor_Const.FROM);
-		vor.setOBSAngle(110);
+		assertEquals("90:1 - Expect FROM", result, Vor_Const.FROM);
+		
+
+		vor.setOBSAngle(90);
 		result = test.calculateToFrom(vor);
-		assertEquals("EXPECTING FROM #9", result, Vor_Const.FROM);
-		vor.setOBSAngle(130);
+		assertEquals("90:90 - Expect FROM", result, Vor_Const.FROM);
+		vor.setOBSAngle(179);
 		result = test.calculateToFrom(vor);
-		assertEquals("EXPECTING FROM #10", result, Vor_Const.FROM);
-		vor.setOBSAngle(290);
+		assertEquals("90:179 - Expect FROM", result, Vor_Const.FROM);
+		vor.setOBSAngle(180);
 		result = test.calculateToFrom(vor);
-		assertEquals("EXPECTING TO #11", result, Vor_Const.TO);
-		vor.setOBSAngle(310);
+		assertEquals("90:180 - Expect OFF", result, Vor_Const.OFF);
+		vor.setOBSAngle(181);
 		result = test.calculateToFrom(vor);
-		assertEquals("EXPECTING TO #12", result, Vor_Const.TO);
+		assertEquals("90:181 - Expect TO", result, Vor_Const.TO);
+		
+		/* Testings Plane at 180 */
+		vor.setRadioAngle(180);
+		vor.setOBSAngle(89);
+		result = test.calculateToFrom(vor);
+		assertEquals("180:89 - Expect TO", result, Vor_Const.TO);
+		vor.setOBSAngle(90);
+		result = test.calculateToFrom(vor);
+		assertEquals("180:90 - Expect OFF", result, Vor_Const.OFF);
+		vor.setOBSAngle(91);
+		result = test.calculateToFrom(vor);
+		assertEquals("180:91 - Expect FROM", result, Vor_Const.FROM);
+
+		vor.setOBSAngle(180);
+		result = test.calculateToFrom(vor);
+		assertEquals("180:180 - Expect FROM", result, Vor_Const.FROM);
+		vor.setOBSAngle(269);
+		result = test.calculateToFrom(vor);
+		assertEquals("180:269 - Expect FROM", result, Vor_Const.FROM);
+		vor.setOBSAngle(270);
+		result = test.calculateToFrom(vor);
+		assertEquals("180:270 - Expect OFF", result, Vor_Const.OFF);
+		vor.setOBSAngle(272);
+		result = test.calculateToFrom(vor);
+		assertEquals("180:271 - Expect TO", result, Vor_Const.TO);
 		
 		
+		/* Testings Plane at 270 */
+		vor.setRadioAngle(270);
+		vor.setOBSAngle(179);
+		result = test.calculateToFrom(vor);
+		assertEquals("270:179 - Expect TO", result, Vor_Const.TO);
+		vor.setOBSAngle(180);
+		result = test.calculateToFrom(vor);
+		assertEquals("270:180 - Expect OFF", result, Vor_Const.OFF);
+		vor.setOBSAngle(181);
+		result = test.calculateToFrom(vor);
+		assertEquals("270:181 - Expect FROM", result, Vor_Const.FROM);
+		
+
+		vor.setOBSAngle(270);
+		result = test.calculateToFrom(vor);
+		assertEquals("270:270 - Expect FROM", result, Vor_Const.FROM);
+		vor.setOBSAngle(359);
+		result = test.calculateToFrom(vor);
+		assertEquals("270:359 - Expect FROM", result, Vor_Const.FROM);
+		vor.setOBSAngle(0);
+		result = test.calculateToFrom(vor);
+		assertEquals("270:0 - Expect OFF", result, Vor_Const.OFF);
+		vor.setOBSAngle(1);
+		result = test.calculateToFrom(vor);
+		assertEquals("270:1 - Expect TO", result, Vor_Const.TO);
+		
+		
+		/* Outlier Test (Testing 0/360 Wrapping) */
+		vor.setRadioAngle(330);
+		vor.setOBSAngle(239);
+		result = test.calculateToFrom(vor);
+		assertEquals("330:179 - Expect TO", result, Vor_Const.TO);
+		vor.setOBSAngle(240);
+		result = test.calculateToFrom(vor);
+		assertEquals("330:180 - Expect OFF", result, Vor_Const.OFF);
+		vor.setOBSAngle(241);
+		result = test.calculateToFrom(vor);
+		assertEquals("330:181 - Expect FROM", result, Vor_Const.FROM);
+		
+
+		vor.setOBSAngle(330);
+		result = test.calculateToFrom(vor);
+		assertEquals("330:330 - Expect FROM", result, Vor_Const.FROM);
+		vor.setOBSAngle(59);
+		result = test.calculateToFrom(vor);
+		assertEquals("330:59 - Expect FROM", result, Vor_Const.FROM);
+		vor.setOBSAngle(60);
+		result = test.calculateToFrom(vor);
+		assertEquals("330:0 - Expect OFF", result, Vor_Const.OFF);
+		vor.setOBSAngle(61);
+		result = test.calculateToFrom(vor);
+		assertEquals("330:61 - Expect TO", result, Vor_Const.TO);
 	}
 
 }

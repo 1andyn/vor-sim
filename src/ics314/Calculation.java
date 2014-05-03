@@ -87,7 +87,6 @@ public class Calculation {
 	public int calculateDeflection(Radio vor)
 	{
 		return (vor.getRadioAngle() - vor.getOBSAngle());
-
 	}
 	
 }
