@@ -37,7 +37,36 @@ public class CalculationTest {
 	public void testGoodBad() {
 		Calculation test = new Calculation();
 		Radio vor = new Radio();
-		//Needs to be rewritten
+		vor.setGoodBad(Vor_Const.BAD);
+		vor.setRadioAngle(0);
+		int gb;
+		for(int x = 0; x < 360; x++) {
+			vor.setOBSAngle(x);
+			gb = test.calculateBad(vor);
+			assertEquals("Should always be bad", gb, Vor_Const.BAD);
+		}
+		vor.setGoodBad(Vor_Const.GOOD);
+		gb = test.calculateBad(vor);
+		
+		vor.setRadioAngle(89);
+		vor.setOBSAngle(89);
+		gb = test.calculateBad(vor);
+		assertEquals("GOOD 89", gb, Vor_Const.GOOD);
+		vor.setOBSAngle(357);
+		gb = test.calculateBad(vor);
+		assertEquals("GOOD 357", gb, Vor_Const.GOOD);
+		vor.setOBSAngle(358);
+		gb = test.calculateBad(vor);
+		assertEquals("BAD 358", gb, Vor_Const.BAD);
+		vor.setOBSAngle(359);
+		gb = test.calculateBad(vor);
+		assertEquals("BAD 359", gb, Vor_Const.BAD);
+		vor.setOBSAngle(0);
+		gb = test.calculateBad(vor);
+		assertEquals("BAD", gb, Vor_Const.BAD);
+		vor.setOBSAngle(1);
+		gb = test.calculateBad(vor);
+		assertEquals("GOOD", gb, Vor_Const.GOOD);
 	}
 	
 	@Test
@@ -83,7 +112,6 @@ public class CalculationTest {
 		result = test.calculateToFrom(vor);
 		assertEquals("90:1 - Expect FROM", result, Vor_Const.FROM);
 		
-
 		vor.setOBSAngle(90);
 		result = test.calculateToFrom(vor);
 		assertEquals("90:90 - Expect FROM", result, Vor_Const.FROM);
@@ -121,8 +149,7 @@ public class CalculationTest {
 		vor.setOBSAngle(272);
 		result = test.calculateToFrom(vor);
 		assertEquals("180:271 - Expect TO", result, Vor_Const.TO);
-		
-		
+				
 		/* Testings Plane at 270 */
 		vor.setRadioAngle(270);
 		vor.setOBSAngle(179);
@@ -135,7 +162,6 @@ public class CalculationTest {
 		result = test.calculateToFrom(vor);
 		assertEquals("270:181 - Expect FROM", result, Vor_Const.FROM);
 		
-
 		vor.setOBSAngle(270);
 		result = test.calculateToFrom(vor);
 		assertEquals("270:270 - Expect FROM", result, Vor_Const.FROM);
@@ -149,7 +175,6 @@ public class CalculationTest {
 		result = test.calculateToFrom(vor);
 		assertEquals("270:1 - Expect TO", result, Vor_Const.TO);
 		
-		
 		/* Outlier Test (Testing 0/360 Wrapping) */
 		vor.setRadioAngle(330);
 		vor.setOBSAngle(239);
@@ -162,7 +187,6 @@ public class CalculationTest {
 		result = test.calculateToFrom(vor);
 		assertEquals("330:181 - Expect FROM", result, Vor_Const.FROM);
 		
-
 		vor.setOBSAngle(330);
 		result = test.calculateToFrom(vor);
 		assertEquals("330:330 - Expect FROM", result, Vor_Const.FROM);
@@ -175,6 +199,7 @@ public class CalculationTest {
 		vor.setOBSAngle(61);
 		result = test.calculateToFrom(vor);
 		assertEquals("330:61 - Expect TO", result, Vor_Const.TO);
+		
 	}
 
 }

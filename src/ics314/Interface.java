@@ -114,6 +114,7 @@ public class Interface {
 		OBSLabel.setLocation(Vor_Const.LABEL_X,Vor_Const.LABEL_Y);
 		
 		final Label radioText = new Label(Simulator_Inputs, SWT.SINGLE);
+		radioText.setText("Radio Angle:  " + "999");
 		radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());
 		radioText.pack();
 		radioText.setLocation(Vor_Const.LABEL_X,Vor_Const.button_TY);
