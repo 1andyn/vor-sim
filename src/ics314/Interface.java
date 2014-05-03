@@ -8,6 +8,8 @@ import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.graphics.Transform;
@@ -109,7 +111,7 @@ public class Interface {
 		Disp_Layout.numColumns = Vor_Const.SUB_COL_COUNT;
 		G_Data = new GridData(GridData.FILL, GridData.BEGINNING, true, false);
 		G_Data.horizontalSpan = Vor_Const.SUB_COL_COUNT;
-		G_Data.heightHint = 60;
+		G_Data.heightHint = 90;
 		Simulator_Inputs.setLayoutData(G_Data);		
 	    
 		Label OBSLabel = new Label(Simulator_Inputs, SWT.SINGLE);
@@ -133,20 +135,25 @@ public class Interface {
 		radioButton.setLocation(Vor_Const.button_X, Vor_Const.button_Y);
 		radioButton.pack();
 
-		final Group Station_ID = new Group(Disp_Shell, 0);
-		Station_ID.setText("Station Identification");
-		G_Data = new GridData(GridData.FILL, GridData.FILL, true, false);
-		G_Data.horizontalSpan = Vor_Const.SUB_COL_COUNT;
-		G_Data.heightHint = 60;
-		Station_ID.setLayoutData(G_Data);
+//		final Group Station_ID = new Group(Disp_Shell, 0);
+//		Station_ID.setText("Station Identification");
+//		G_Data = new GridData(GridData.FILL, GridData.FILL, true, false);
+//		G_Data.horizontalSpan = Vor_Const.SUB_COL_COUNT;
+//		G_Data.heightHint = 60;
+//		Station_ID.setLayoutData(G_Data);
+
 		
-		final Label morseCode = new Label(Station_ID, SWT.SINGLE);
-		morseCode.setText("                    ");
+		final Label morseCode = new Label(Simulator_Inputs, SWT.SINGLE);
+		FontData[] fD = morseCode.getFont().getFontData();
+		fD[0].setHeight(16);
+		morseCode.setFont( new Font(Disp,fD[0]));
+		morseCode.setText("                                          ");
 		morseCode.pack();
-		morseCode.setText(vor_rad.generateID(alphaArray) + "  " +
+		morseCode.setText("Station Id:  " + vor_rad.generateID(alphaArray) + "  " +
 				vor_rad.generateID(alphaArray) + "  " +
 				vor_rad.generateID(alphaArray));
-		morseCode.setLocation(Vor_Const.LABEL_X,Vor_Const.button_TY);
+		//morseCode.setLocation(Vor_Const.LABEL_X,Vor_Const.button_TY);
+		morseCode.setLocation(Vor_Const.station_idX, Vor_Const.station_idy);
 		
 		Disp_Shell.pack();
 		Disp_Shell.open();
@@ -167,7 +174,7 @@ public class Interface {
 		        vor_rad.generateRandomRadio();
 		        vor_rad.generateRandomGoodBad();
 		        radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());	
-		        morseCode.setText(vor_rad.generateID(alphaArray) + "  " +
+				morseCode.setText("Station Id:  " + vor_rad.generateID(alphaArray) + "  " +
 						vor_rad.generateID(alphaArray) + "  " +
 						vor_rad.generateID(alphaArray));
 		        cmp_cvs.redraw();

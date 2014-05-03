@@ -61,6 +61,8 @@ public interface Vor_Const {
 	static final int button_X = 133;
 	static final int button_Y = 45;
 	static final int button_TY = 50;
+	static final int station_idX = 10;
+	static final int station_idy = 70;
 	
 	//Fixed Coordinates
 	static final int I_PTR_X = 177;
