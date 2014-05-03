@@ -42,9 +42,13 @@ public class Calculation {
 		badangles[3] = (abeam_b + Vor_Const.ABEAM_OFFSET)%Vor_Const.TWO_PI;
 		badangles[4] = normNegAngle(abeam_a - Vor_Const.ABEAM_OFFSET);
 		badangles[5] = normNegAngle(abeam_b - Vor_Const.ABEAM_OFFSET);
+
+//		for(int z = 0; z < 6; z++) {
+//			System.out.println("data: " + badangles[z]);
+//		}
 		
 		for(int x = 0; x < 6; x++) {
-			if(badangles[x] == icp) {
+			if(badangles[x] == crs) {
 				return Vor_Const.BAD;
 			}
 		}
