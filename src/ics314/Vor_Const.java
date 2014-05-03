@@ -85,4 +85,32 @@ public interface Vor_Const {
 	static final float ROTATE_OFFSET = 3.5f;
 	static final int DEFLECTION_OFFSET = 11;
 	
+	//Morse Code Constants
+	static final String M_A = ".-";
+	static final String M_B = "-...";
+	static final String M_C = "-.-.";
+	static final String M_D = "-..";
+	static final String M_E = ".";
+	static final String M_F = "..-.";
+	static final String M_G = "--.";
+	static final String M_H = "....";
+	static final String M_I = "..";
+	static final String M_J = ".---";
+	static final String M_K = "-.-";
+	static final String M_L = ".-..";
+	static final String M_M = "--";
+	static final String M_N = "-.";
+	static final String M_O = "---";
+	static final String M_P = ".--.";
+	static final String M_Q = "--.-";
+	static final String M_R = ".-.";
+	static final String M_S = "...";
+	static final String M_T = "-";
+	static final String M_U = "..-";
+	static final String M_V = "...-";
+	static final String M_W = ".--";
+	static final String M_X = "-..-";
+	static final String M_Y = "-.--";
+	static final String M_Z = "--..";
+	
 }
