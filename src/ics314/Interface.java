@@ -99,7 +99,7 @@ public class Interface {
 		    });
 
 		//Column #2 Tools
-		Group Simulator_Inputs = new Group(Disp_Shell, SWT.NONE);
+		final Group Simulator_Inputs = new Group(Disp_Shell, SWT.NONE);
 		Simulator_Inputs.setText("Simulator Inputs");
 		Disp_Layout = new GridLayout();
 		Disp_Layout.numColumns = Vor_Const.SUB_COL_COUNT;
@@ -114,9 +114,9 @@ public class Interface {
 		OBSLabel.setLocation(Vor_Const.LABEL_X,Vor_Const.LABEL_Y);
 		
 		final Label radioText = new Label(Simulator_Inputs, SWT.SINGLE);
-		radioText.setText("Radio Angle:  " + "999");
-		radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());
+		radioText.setText("Radio Angle:  999");
 		radioText.pack();
+		radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());
 		radioText.setLocation(Vor_Const.LABEL_X,Vor_Const.button_TY);
 
 		final Spinner OBSAngle = new Spinner(Simulator_Inputs, SWT.WRAP);
@@ -147,7 +147,7 @@ public class Interface {
 		    public void widgetSelected(SelectionEvent e) {
 		        vor_rad.generateRandomRadio();
 		        vor_rad.generateRandomGoodBad();
-		        radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());
+		        radioText.setText("Radio Angle:  " + vor_rad.getRadioAngle());		    
 		        cmp_cvs.redraw();
 		    }
 		}); 
