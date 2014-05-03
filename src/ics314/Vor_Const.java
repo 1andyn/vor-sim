@@ -112,5 +112,4 @@ public interface Vor_Const {
 	static final String M_X = "-..-";
 	static final String M_Y = "-.--";
 	static final String M_Z = "--..";
-	
 }

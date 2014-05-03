@@ -28,7 +28,7 @@ public class Interface {
 	{
 		final Interface_Configurator icfg = new Interface_Configurator();
 		final Calculation calc = new Calculation();
-		final Radio vor_rad = new Radio();		
+		final Radio vor_rad = new Radio();
 		
 		//Initial Display Interface Variables
 		final Display Disp = new Display();
@@ -44,6 +44,10 @@ public class Interface {
 		Disp_Layout.numColumns = Vor_Const.ColumnCount;
 		Disp_Shell.setLayout(Disp_Layout);
 		GridData G_Data = new GridData(GridData.FILL, GridData.CENTER, true, false);
+		
+		//Morse Code Array Initialization
+		final ArrayList<String> alphaArray = new ArrayList<String>(26);
+		icfg.SetAlpha(alphaArray);
 
 		//Primary Display (OBS CODE)
 		Group Onboard_Disp = new Group(Disp_Shell, SWT.NONE);

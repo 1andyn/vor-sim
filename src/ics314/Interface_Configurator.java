@@ -1,5 +1,6 @@
 package ics314;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.swt.events.PaintEvent;
@@ -43,6 +44,37 @@ public class Interface_Configurator {
 		images.add(needle);
 		Image cent = new Image(disp,"rsrc/cent.png"); //9
 		images.add(cent);
+	}
+	
+	//Function for creating the morse code alphabet
+	public void SetAlpha(ArrayList<String> alpha)
+	{
+		alpha.add(Vor_Const.M_A);
+		alpha.add(Vor_Const.M_B);
+		alpha.add(Vor_Const.M_C);
+		alpha.add(Vor_Const.M_D);
+		alpha.add(Vor_Const.M_E);
+		alpha.add(Vor_Const.M_F);
+		alpha.add(Vor_Const.M_G);
+		alpha.add(Vor_Const.M_H);
+		alpha.add(Vor_Const.M_I);
+		alpha.add(Vor_Const.M_J);
+		alpha.add(Vor_Const.M_K);
+		alpha.add(Vor_Const.M_L);
+		alpha.add(Vor_Const.M_M);
+		alpha.add(Vor_Const.M_N);
+		alpha.add(Vor_Const.M_O);
+		alpha.add(Vor_Const.M_P);
+		alpha.add(Vor_Const.M_Q);
+		alpha.add(Vor_Const.M_R);
+		alpha.add(Vor_Const.M_S);
+		alpha.add(Vor_Const.M_T);
+		alpha.add(Vor_Const.M_U);
+		alpha.add(Vor_Const.M_V);
+		alpha.add(Vor_Const.M_W);
+		alpha.add(Vor_Const.M_X);
+		alpha.add(Vor_Const.M_Y);
+		alpha.add(Vor_Const.M_Z);
 	}
 	
 	//Function for Rotating OBS

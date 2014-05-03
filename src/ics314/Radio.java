@@ -6,7 +6,7 @@ public class Radio {
 	private int OBS_ANGLE;
 	private int GOOD_BAD;
 	private int RADIO_ANGLE;
-
+	
 	public Radio()
 	{
 		initRadio();
