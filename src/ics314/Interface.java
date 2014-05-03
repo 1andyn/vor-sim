@@ -111,7 +111,7 @@ public class Interface {
 		Disp_Layout.numColumns = Vor_Const.SUB_COL_COUNT;
 		G_Data = new GridData(GridData.FILL, GridData.BEGINNING, true, false);
 		G_Data.horizontalSpan = Vor_Const.SUB_COL_COUNT;
-		G_Data.heightHint = 90;
+		G_Data.heightHint = 100;
 		Simulator_Inputs.setLayoutData(G_Data);		
 	    
 		Label OBSLabel = new Label(Simulator_Inputs, SWT.SINGLE);
